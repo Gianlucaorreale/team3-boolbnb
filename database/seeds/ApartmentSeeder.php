@@ -14,20 +14,23 @@ class ApartmentSeeder extends Seeder
     public function run(Faker $faker)
     {
 
-        for($i = 0; $i < 10; $i++) {
+        $apartments = config('apartments');
+        
+        forEach($apartments as $apartment) {
 
             $new_apartment = new Apartment();
 
-            $new_apartment->descriptive_title = $faker->text(100);
-            $new_apartment->num_rooms = $faker->randomNumber(2, false);
-            $new_apartment->num_bed = $faker->randomNumber(2, false);
-            $new_apartment->num_bathroom = $faker->randomNumber(2, false);
-            $new_apartment->square_meters = $faker->numberBetween(30, 500);
-            $new_apartment->visibility = $faker->boolean();
-            $new_apartment->address = $faker->address();
-            $new_apartment->latitude = $faker->latitude($min = 40, $max = 42);
-            $new_apartment->longitude = $faker->longitude($min = 11, $max = 13);
-            $new_apartment->image = $faker->imageUrl();
+            $new_apartment->user_id = 1;
+            $new_apartment->descriptive_title = $apartment['descriptive_title'];
+            $new_apartment->num_rooms = $apartment['num_rooms'];
+            $new_apartment->num_bed = $apartment['num_bed'];
+            $new_apartment->num_bathroom = $apartment['num_bathroom'];
+            $new_apartment->square_meters = $apartment['square_meters'];
+            $new_apartment->visibility = $apartment['visibility'];
+            $new_apartment->address = $apartment['address'];
+            $new_apartment->latitude = $apartment['latitude'];
+            $new_apartment->longitude = $apartment['longitude'];
+            $new_apartment->image = $apartment['image'];
 
             $new_apartment->save();
         }
