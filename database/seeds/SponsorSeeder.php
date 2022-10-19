@@ -14,17 +14,17 @@ class SponsorSeeder extends Seeder
     {
         $sponsors = [
             [
-                'type' => 'silver',
+                'type' => 'Silver',
                 'duration' => '24',
                 'price' => '2.99'
             ],
             [
-                'type' => 'gold',
+                'type' => 'Gold',
                 'duration' => '72',
                 'price' => '5.99'
             ],
             [
-                'type' => 'platinum',
+                'type' => 'Platinum',
                 'duration' => '144',
                 'price' => '9.99'
             ],
