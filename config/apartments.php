@@ -1,6 +1,7 @@
 <?php
 return [
   [
+    'user_id' => '1',
     'descriptive_title' => 'Stanza Privata in Centro in Alloggio Condiviso',
     'num_rooms' => '3',
     'num_bathroom' => '1',
