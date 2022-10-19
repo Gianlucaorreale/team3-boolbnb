@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Models\Apartment;
+use App\Models\Service;
 use Faker\Generator as Faker;
 
 class ApartmentSeeder extends Seeder
@@ -33,6 +34,8 @@ class ApartmentSeeder extends Seeder
             $new_apartment->image = $apartment['image'];
 
             $new_apartment->save();
+            $services = Service::all();
+            $new_apartment->services()->attach($services);
         }
     }
 }
