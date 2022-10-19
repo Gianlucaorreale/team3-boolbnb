@@ -1,12 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\User;
 use App\Models\Apartment;
-use App\Models\Sponsor;
-use App\Models\Service;
-use App\Models\Message;
-use App\Models\View;
 use Faker\Generator as Faker;
 
 class ApartmentSeeder extends Seeder
