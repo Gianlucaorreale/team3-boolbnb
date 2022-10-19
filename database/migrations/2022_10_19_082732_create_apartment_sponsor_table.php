@@ -19,6 +19,8 @@ class CreateApartmentSponsorTable extends Migration
             $table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('set null');
             $table->unsignedBigInteger('sponsor_id')->nullable();
             $table->foreign('sponsor_id')->references('id')->on('sponsors')->onDelete('set null');
+            $table->dateTime('date_start');
+            $table->dateTime('date_expired');
             $table->timestamps();
         });
     }
