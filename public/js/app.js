@@ -37333,6 +37333,7 @@ imageField.addEventListener('input', function () {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 __webpack_require__(/*! ./apartment-image-preview */ "./resources/js/apartment-image-preview.js");
+__webpack_require__(/*! ./delete-confirmation */ "./resources/js/delete-confirmation.js");
 
 /***/ }),
 
@@ -37382,6 +37383,24 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/delete-confirmation.js":
+/*!*********************************************!*\
+  !*** ./resources/js/delete-confirmation.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var deleteForms = document.querySelectorAll('.delete-form');
+deleteForms.forEach(function (form) {
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    var hasConfirm = confirm('Sei sicuro di voler eliminare questo elemento?');
+    if (hasConfirm) form.submit();
+  });
+});
 
 /***/ }),
 

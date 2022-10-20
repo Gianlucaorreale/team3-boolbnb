@@ -13,6 +13,11 @@
           <span>Nessun servizio</span>
           @endforelse
           <a class="btn btn-primary" href="{{route('admin.apartments.index')}}">Torna indietro</a>
+          <form class="delete-form" action="{{route('admin.apartments.destroy', $apartment)}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button class="btn btn-danger" type="submit">Delete</button>
+          </form>
         </div>
       </div>
     </div>

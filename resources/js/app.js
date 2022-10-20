@@ -6,3 +6,4 @@
 
 require('./bootstrap');
 require('./apartment-image-preview');
+require('./delete-confirmation');
