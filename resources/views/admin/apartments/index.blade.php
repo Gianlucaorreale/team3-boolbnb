@@ -16,6 +16,8 @@
                 
             <span>Nessun servizio</span>
             @endforelse
+            <br>
+            <a href="{{route('admin.apartments.show', $apartment)}}" class="btn btn-primary">Show</a>
           </div>
         </div>
       </div>
