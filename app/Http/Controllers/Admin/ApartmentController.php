@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Apartment;
+use App\Models\Service;
 class ApartmentController extends Controller
 {
     /**
@@ -14,7 +16,7 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        $apartments = Apartment::all();
+        $apartments = Apartment::findOrFail(auth()->user()->id)->get();
         return view('admin.apartments.index', compact('apartments'));
     }
 
@@ -25,7 +27,9 @@ class ApartmentController extends Controller
      */
     public function create()
     {
-        //
+        $apartment = new Apartment();
+        $services = Service::all();
+        return view('admin.apartments.create', compact('apartment', 'services'));
     }
 
     /**
@@ -36,7 +40,7 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**
@@ -45,9 +49,9 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Apartment $apartment)
     {
-        //
+        return view('admin.apartments.show', compact('apartment'));
     }
 
     /**
