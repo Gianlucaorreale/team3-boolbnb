@@ -40,7 +40,49 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        $request->validate(
+            [ 
+                'descriptive_title' => 'required|string|min:4|max:255',
+                'num_rooms' => 'required|number|min:1|max:255',
+                'num_bathroom' => 'required|number|min:1|max:255',
+                'num_bed' => 'required|number|min:1|max:255',
+                'square_meters' => 'required|number|min:5|max:60000',
+                'address' => 'required|string',
+                'image' => 'require|url',
+            ],
+            [
+                'descriptive_title.required' => 'Devi inserire il titolo',
+                'descriptive_title.min' => 'il titolo deve essere minimo :min caratteri',
+                'descriptive_title.max' => 'il titolo deve essere massimo :max caratteri',
+
+                'num_rooms.required' => 'Questo è un parametro obbligatorio',
+                'num_rooms.number' => 'Questo campo deve essere un numero',
+                'num_rooms.min' => 'il numero delle stanze deve essere minimo :min',
+                'num_rooms.max' => 'il numero delle stanze deve essere massimo :max',
+
+                'num_bathroom.required' => 'Questo è un parametro obbligatorio',
+                'num_bathroom.number' => 'Questo campo deve essere un numero',
+                'num_bathroom.min' => 'il numero dei bagni deve essere minimo :min',
+                'num_bathroom.max' => 'il numero dei bagni deve essere massimo :max',
+
+                'num_bed.required' => 'Questo è un parametro obbligatorio',
+                'num_bed.number' => 'Questo campo deve essere un numero',
+                'num_bed.min' => 'il numero dei letti deve essere minimo :min',
+                'num_bed.max' => 'il numero dei letti deve essere massimo :max',
+
+                'square_meters.required' => 'Questo è un parametro obbligatorio',
+                'square_meters.number' => 'Questo campo deve essere un numero',
+                'square_meters.min' => 'i metri quadri devono essere minimo :min',
+                'square_meters.max' => 'i metri quadri devono essere massimo :max',
+
+                'address.required' => 'Questo è un parametro obbligatorio',
+
+                'image.required' => 'Questo è un parametro obbligatorio',
+                'image.url' => 'Questo campo deve essere un url valido',
+            ]
+        );
+        $data = $request->all();
+        $apartment = new Apartment();
     }
 
     /**

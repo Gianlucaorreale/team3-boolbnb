@@ -23,8 +23,8 @@ class CreateApartmentsTable extends Migration
             $table->smallInteger('square_meters')->unsigned();
             $table->boolean('visibility');
             $table->string('address');
-            $table->decimal('latitude', 9,6);
-            $table->decimal('longitude', 8,6);
+            $table->decimal('latitude', 9,6)->default('44.49549');
+            $table->decimal('longitude', 8,6)->default('11.33969');
             $table->text('image');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');

@@ -4,7 +4,7 @@
     {{-- descriptive_title --}}
     <div class="form-group">
       <label for="descriptive_title">Titolo Descrittivo:</label>
-      <textarea type="text" class="form-control" id="descriptive_title" name="descriptive_title" rows="4" maxlength="255" required>
+      <textarea type="text" class="form-control" value="{{old('descriptive_title', $apartment->descriptive_title)}}" id="descriptive_title" name="descriptive_title" rows="4" maxlength="255" required>
       </textarea>
     </div>
     <div class="row">
