@@ -18,7 +18,21 @@
             <span>Nessun servizio</span>
             @endforelse
             <br>
-            <a href="{{route('admin.apartments.show', $apartment)}}" class="btn btn-primary">Show</a>
+            <div class="row my-3">
+              <div class="col">
+                <a href="{{route('admin.apartments.show', $apartment)}}" class="btn btn-primary">Show</a>
+              </div>
+              <div class="col">
+                <a href="{{route('admin.apartments.edit', $apartment)}}" class="btn btn-warning">Edit</a>
+              </div>
+              <div class="col">
+                <form action="{{route('admin.apartments.destroy', $apartment->id)}}" method="POST">
+                  @csrf
+                  @method('DELETE')
+                  <button class="btn btn-danger" type="submit">Delete</button>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       </div>
