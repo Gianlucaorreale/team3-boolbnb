@@ -60,7 +60,10 @@
     {{-- image --}}
     <div class="form-group">
       <label for="image">Enter an https:// URL:</label>
-      <input type="url" class="form-control" name="image" id="image" placeholder="https://example.com/" size="30" required>
+      <input value="{{old('image',$apartment->image)}}" type="url" class="form-control" name="image" id="image-field" placeholder="https://example.com/" size="30" required>
+    </div>
+    <div>
+      <img id="preview" class="img-fluid" src="{{$apartment->image??'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/330px-No-Image-Placeholder.svg.png?20200912122019'}}" alt="apartment-image-preview">
     </div>
     {{-- visibility --}}
     <div class="form-group">

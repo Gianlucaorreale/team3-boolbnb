@@ -49538,6 +49538,36 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/js/apartment-image-preview.js":
+/*!*************************************************!*\
+  !*** ./resources/js/apartment-image-preview.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var placeholder = "https://media.istockphoto.com/vectors/thumbnail-image-vector-graphic-vector-id1147544807?k=20&m=1147544807&s=612x612&w=0&h=pBhz1dkwsCMq37Udtp9sfxbjaMl27JUapoyYpQm0anc=";
+var imageField = document.getElementById('image-field');
+var preview = document.getElementById('preview');
+imageField.addEventListener('input', function () {
+  var _imageField$value;
+  preview.src = (_imageField$value = imageField.value) !== null && _imageField$value !== void 0 ? _imageField$value : placeholder;
+});
+
+/*imageField.addEventListener('input',()=>{
+if(imageField.files && imageField.files[0]){
+    let reader = new FileReader();
+    reader.readAsDataURL(imageField.files[0]);
+
+    reader.onload = event =>{
+        preview.src = event.target.result;
+    }
+
+}
+else preview.src = placeholder;
+});*/
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -49552,6 +49582,7 @@ module.exports = function(module) {
  */
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./apartment-image-preview */ "./resources/js/apartment-image-preview.js");
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
 /**
@@ -49715,8 +49746,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/danieledimento/Laravel/team3-boolbnb/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/danieledimento/Laravel/team3-boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\laravel\team3-boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\laravel\team3-boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
