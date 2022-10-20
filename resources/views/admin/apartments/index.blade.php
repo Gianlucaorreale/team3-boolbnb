@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="container">
+  <div class="container text-center">
+    <a href="{{route('admin.apartments.create')}}" class="btn btn-primary">Crea</a>
     <div class="row p-5">
       @forelse ($apartments as $apartment)
       <div class="col">
