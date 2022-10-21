@@ -16,9 +16,9 @@ class CreateApartmentServiceTable extends Migration
         Schema::create('apartment_service', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('apartment_id')->nullable();
-            $table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('set null');
+            $table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('cascade');
             $table->unsignedBigInteger('service_id')->nullable();
-            $table->foreign('service_id')->references('id')->on('services')->onDelete('set null');
+            $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');
             $table->timestamps();
         });
     }

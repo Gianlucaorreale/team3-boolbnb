@@ -19,7 +19,7 @@ class CreateViewsTable extends Migration
             $table->date('date');
             $table->ipAddress('ip_address');
             $table->timestamps();
-            $table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('set null');
+            $table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('cascade');
         });
     }
 

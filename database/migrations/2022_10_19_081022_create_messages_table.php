@@ -19,7 +19,7 @@ class CreateMessagesTable extends Migration
             $table->string('email');
             $table->text('content');
             $table->timestamps();
-            $table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('set null');
+            $table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('cascade');
         });
     }
 
