@@ -16,7 +16,7 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        $apartments = Apartment::findOrFail(Auth::id())->get();
+        $apartments = Apartment::where('user_id',Auth::id())->get();
         return view('admin.apartments.index', compact('apartments'));
     }
 

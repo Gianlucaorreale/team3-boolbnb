@@ -17,7 +17,7 @@
     {{-- descriptive_title --}}
     <div class="form-group">
       <label for="descriptive_title">Titolo Descrittivo:</label>
-      <textarea class="form-control" id="descriptive_title" name="descriptive_title" rows="4" maxlength="255" required>
+      <textarea class="form-control" id="descriptive_title" name="descriptive_title" rows="4" minlength="4" maxlength="255" required>
         {{old('descriptive_title', $apartment->descriptive_title)}}
       </textarea>
     </div>
@@ -26,28 +26,28 @@
       <div class="col">
         <div class="form-group">
           <label for="num_rooms">Numero Stanze:</label>
-          <input type="number" class="form-control" value="{{old('num_rooms', $apartment->num_rooms)}}" name="num_rooms" id="num_rooms" min="0" max="255" required value="1">
+          <input type="number" class="form-control" value="{{old('num_rooms', $apartment->num_rooms)}}" name="num_rooms" id="num_rooms" min="1" max="255" required value="1">
         </div>
       </div>
       {{-- num_bathroom --}}
       <div class="col">
         <div class="form-group">
           <label for="num_bathroom">Numero Bagni:</label>
-          <input type="number" class="form-control" value="{{old('num_bathroom', $apartment->num_bathroom)}}" name="num_bathroom" id="num_bathroom" min="0" max="255" required value="1">
+          <input type="number" class="form-control" value="{{old('num_bathroom', $apartment->num_bathroom)}}" name="num_bathroom" id="num_bathroom" min="1" max="255" required value="1">
         </div>
       </div>
       {{-- num_bed --}}
       <div class="col">
         <div class="form-group">
           <label for="num_bed">Numero Letti:</label>
-          <input type="number" class="form-control" value="{{old('num_bed', $apartment->num_bed)}}" name="num_bed" id="num_bed" min="0" max="255" required value="1">
+          <input type="number" class="form-control" value="{{old('num_bed', $apartment->num_bed)}}" name="num_bed" id="num_bed" min="1" max="255" required value="1">
         </div>
       </div>
       {{-- square_meters --}}
       <div class="col">
         <div class="form-group">
           <label for="square_meters">Metri Quadri:</label>
-          <input type="number" class="form-control" value="{{old('square_meters', $apartment->square_meters)}}" name="square_meters" id="square_meters" min="0" required value="1">
+          <input type="number" class="form-control" value="{{old('square_meters', $apartment->square_meters)}}" name="square_meters" id="square_meters" min="5" required value="1">
         </div>
       </div>
     </div>
