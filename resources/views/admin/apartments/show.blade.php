@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
       <div class="card" style="width: 35rem;">
-        <img class="card-img-top" src="{{$apartment->image}}" alt="Card image cap">
+        <img class="card-img-top" src="{{asset('storage/'.$apartment->image)}}" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">{{$apartment->descriptive_title}}</h5>
           <p class="card-text">{{$apartment->address}}</p>

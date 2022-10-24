@@ -31,7 +31,7 @@ class ApartmentSeeder extends Seeder
             $new_apartment->address = $apartment['address'];
             $new_apartment->latitude = $apartment['latitude'];
             $new_apartment->longitude = $apartment['longitude'];
-            $new_apartment->image = $apartment['image'];
+            //$new_apartment->image = $apartment['image'];
 
             $new_apartment->save();
             $services = Service::all();

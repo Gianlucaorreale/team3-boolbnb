@@ -8,10 +8,10 @@
 </div>
 @endif
 @if($apartment->exists)
-  <form action="{{route('admin.apartments.update', $apartment)}}" method="POST">
+  <form action="{{route('admin.apartments.update', $apartment)}}" method="POST" enctype="multipart/form-data">
   @method('PUT')
 @else
-  <form action="{{route('admin.apartments.store')}}" method="POST">
+  <form action="{{route('admin.apartments.store')}}" method="POST" enctype="multipart/form-data">
 @endif
     @csrf
     {{-- descriptive_title --}}
@@ -83,11 +83,11 @@
     <div class="form-group">
       <div class="row">
         <div class="col-8">
-          <label for="image">Enter an https:// URL:</label>
-          <input value="{{old('image',$apartment->image)}}" type="url" class="form-control" name="image" id="image-field" placeholder="https://example.com/" size="30" required>
+          <label for="image">Carica un'immagine:</label>
+          <input value="{{old('image',$apartment->image)}}" type="file" class="form-control" name="image" id="image-field" placeholder="https://example.com/" size="30" required>
         </div>
         <div class="col-4">
-          <img id="preview" class="img-fluid" src="{{$apartment->image??'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/330px-No-Image-Placeholder.svg.png?20200912122019'}}" alt="apartment-image-preview">
+          <img id="preview" class="img-fluid" src="{{$apartment->image ? asset('storage/'.$apartment->image) : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/330px-No-Image-Placeholder.svg.png?20200912122019'}}" alt="apartment-image-preview">
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Apartment;
@@ -41,6 +41,7 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
+      
         $request->validate(
             [ 
                 'descriptive_title' => 'required|string|min:4|max:255',
@@ -49,7 +50,7 @@ class ApartmentController extends Controller
                 'num_bed' => 'required|numeric|min:1|max:255',
                 'square_meters' => 'required|numeric|min:5|max:60000',
                 'address' => 'required|string',
-                'image' => 'required|url',
+                'image' => 'required|image',
             ],
             [
                 'descriptive_title.required' => 'Devi inserire il titolo',
@@ -79,7 +80,8 @@ class ApartmentController extends Controller
                 'address.required' => 'Questo è un parametro obbligatorio',
 
                 'image.required' => 'Questo è un parametro obbligatorio',
-                'image.url' => 'Questo campo deve essere un url valido',
+                //'image.mimes' => 'L\'immagine deve avere uno di questi formati: jpeg, jpg, svg, png ',
+                'image.image' => ' Il file deve essere un immagine'
             ]
         );
         $data = $request->all();
@@ -87,6 +89,13 @@ class ApartmentController extends Controller
         $new_apartment->user_id = Auth::id();
         $new_apartment->fill($data);
         $new_apartment->visibility = array_key_exists('visibility', $data);
+        
+       
+
+        if(array_key_exists('image', $data)){
+            $image_url = Storage::put('apartments', $data['image']);
+            $new_apartment->image = $image_url;
+        }
         $new_apartment->save();
         $services = [];
         if(array_key_exists('services_array', $data)){
@@ -136,7 +145,7 @@ class ApartmentController extends Controller
                 'num_bed' => 'required|numeric|min:1|max:255',
                 'square_meters' => 'required|numeric|min:5|max:60000',
                 'address' => 'required|string',
-                'image' => 'required|url',
+                'image' => 'required|image',
             ],
             [
                 'descriptive_title.required' => 'Devi inserire il titolo',
@@ -166,7 +175,8 @@ class ApartmentController extends Controller
                 'address.required' => 'Questo è un parametro obbligatorio',
 
                 'image.required' => 'Questo è un parametro obbligatorio',
-                'image.url' => 'Questo campo deve essere un url valido',
+                //'image.mimes' => 'L\'immagine deve avere uno di questi formati: jpeg, jpg, svg, png ',
+                'image.image' => ' Il file deve essere un immagine'
             ]
         );
         $data = $request->all();
@@ -176,6 +186,12 @@ class ApartmentController extends Controller
         $apartment->update($data);
         if(array_key_exists('services_array', $data)){
             $apartment->services()->sync($data['services_array']);
+        }
+        
+        if(array_key_exists('image', $data)){
+            if($apartment->image)Storage::delete($apartment->image);
+            $image_url = Storage::put('apartments', $data['image']);
+            $apartment->image = $image_url;
         }
 
         return redirect()->route('admin.apartments.show', $apartment);
@@ -190,6 +206,7 @@ class ApartmentController extends Controller
      */
     public function destroy(Apartment $apartment)
     {
+        if($apartment->image)Storage::delete($apartment->image);
         $apartment->delete();
         return redirect()->route('admin.apartments.index');
     }
