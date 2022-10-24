@@ -29,7 +29,10 @@
                 <form class="delete-form" action="{{route('admin.apartments.destroy', $apartment->id)}}" method="POST">
                   @csrf
                   @method('DELETE')
-                  <button class="btn btn-danger" type="submit">Delete</button>
+                  <button type="submit" class="btn btn-danger delete" data-toggle="modal" data-target="#exampleModal">
+                    Delete
+                  </button>
+                  @include('includes.admin.apartments.modal')
                 </form>
               </div>
             </div>

@@ -37386,17 +37386,14 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ (function(module, exports) {
 
 var deleteForm = document.querySelectorAll(".delete-form");
-console.log(deleteForm);
+var deleteBtn = document.querySelectorAll(".delete");
+var confirmDelete = document.querySelector(".discard");
 deleteForm.forEach(function (form) {
   form.addEventListener('submit', function (event) {
     event.preventDefault();
-    var hasConfirmed = confirm('Sei sicuro di voler eliminare questo post??');
-    console.log(hasConfirmed);
-    console.log(form);
-    if (hasConfirmed) {
+    confirmDelete.addEventListener('click', function (event) {
       form.submit();
-    }
-    ;
+    });
   });
 });
 
