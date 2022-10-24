@@ -183,17 +183,17 @@ class ApartmentController extends Controller
         if(!array_key_exists('visibility', $data)) {
             $apartment->visibility = 0;
         };
-        $apartment->update($data);
-        if(array_key_exists('services_array', $data)){
-            $apartment->services()->sync($data['services_array']);
-        }
-        
+
         if(array_key_exists('image', $data)){
             if($apartment->image)Storage::delete($apartment->image);
             $image_url = Storage::put('apartments', $data['image']);
             $apartment->image = $image_url;
         }
+        $apartment->update($data);
 
+        if(array_key_exists('services_array', $data)){
+            $apartment->services()->sync($data['services_array']);
+        }
         return redirect()->route('admin.apartments.show', $apartment);
         
     }

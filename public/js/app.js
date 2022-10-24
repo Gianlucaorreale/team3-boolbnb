@@ -37299,22 +37299,14 @@ var placeholder = "https://media.istockphoto.com/vectors/thumbnail-image-vector-
 var imageField = document.getElementById('image-field');
 var preview = document.getElementById('preview');
 imageField.addEventListener('input', function () {
-  var _imageField$value;
-  preview.src = (_imageField$value = imageField.value) !== null && _imageField$value !== void 0 ? _imageField$value : placeholder;
+  if (imageField.files && imageField.files[0]) {
+    var reader = new FileReader();
+    reader.readAsDataURL(imageField.files[0]);
+    reader.onload = function (event) {
+      preview.src = event.target.result;
+    };
+  } else preview.src = placeholder;
 });
-
-// imageField.addEventListener('input',()=>{
-// if(imageField.files && imageField.files[0]){
-//     let reader = new FileReader();
-//     reader.readAsDataURL(imageField.files[0]);
-
-//     reader.onload = event =>{
-//         preview.src = event.target.result;
-//     }
-
-// }
-// else preview.src = placeholder;
-// });
 
 /***/ }),
 
