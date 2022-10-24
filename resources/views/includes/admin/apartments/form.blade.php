@@ -53,8 +53,13 @@
     </div>
     {{-- address --}}
     <div class="form-group">
-      <label for="address">Address</label>
-      <input type="text" class="form-control" value="{{old('address', $apartment->address)}}" id="address" name="address" placeholder="Via, Città, Regione, Stato">
+      <label for="address">Indirizzo:</label>
+      <div id="address-tomtom">   
+      </div>
+      <input id="lat" type="text" class="form-control" name="lat" id="lat" hidden>
+      <input id="lon" type="text" class="form-control" name="lon" id="lon" hidden>
+
+      {{-- <input type="text" class="form-control" value="{{old('address', $apartment->address)}}" id="address" name="address" placeholder="Via, Città, Regione, Stato"> --}}
     </div>
     {{-- services --}}
     <div class="form-group">
@@ -100,4 +105,39 @@
     </div>
 
     <button type="submit" class="btn btn-primary">Aggiungi Appartamento</button>
+    <script>
+      var options = {
+          searchOptions: {
+              key: 'k8P3Rx9lwVUMwJiJA3JF9ARIMpojuobA',
+              language: 'it-IT',
+              limit: 10,
+          },
+          autocompleteOptions: {
+              key: 'k8P3Rx9lwVUMwJiJA3JF9ARIMpojuobA',
+              language: 'it-IT',
+          }
+      };
+      const latInput = document.getElementById('lat');
+      const lonInput = document.getElementById('lon');
+      const addressContainer = document.getElementById('address-tomtom')
+      var ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
+      var searchBoxHTML = ttSearchBox.getSearchBoxHTML();
+      addressContainer.append(searchBoxHTML);
+      const tomtomInput = document.getElementsByClassName("tt-search-box-input")[0];
+
+      
+      searchBoxHTML.addEventListener('input', (e)=>{
+        console.log(ttSearchBox.getValue());
+      })
+      let date = {}
+      ttSearchBox.on('tomtom.searchbox.resultsfound', function(data) {
+        date = (data);
+        let position = date.data.results.fuzzySearch.results[0].position;
+        let lon = position.lng;
+        let lat = position.lat;
+        latInput.value = lat;
+        lonInput.value = lon;
+      });
+      tomtomInput.setAttribute("name","address");
+  </script>
   </form>

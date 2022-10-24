@@ -41,6 +41,7 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
         $request->validate(
             [ 
                 'descriptive_title' => 'required|string|min:4|max:255',
