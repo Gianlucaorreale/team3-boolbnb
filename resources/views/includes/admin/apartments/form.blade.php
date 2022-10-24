@@ -56,8 +56,8 @@
       <label for="address">Indirizzo:</label>
       <div id="address-tomtom">   
       </div>
-      <input id="lat" type="text" class="form-control" name="lat" id="lat" hidden>
-      <input id="lon" type="text" class="form-control" name="lon" id="lon" hidden>
+      <input id="lat" type="text" class="form-control" name="latitude" id="lat" value="{{old('latitude', $apartment->latitude)}}" hidden>
+      <input id="lon" type="text" class="form-control" name="longitude" id="lon" value="{{old('longitude', $apartment->longitude)}}" hidden>
 
       {{-- <input type="text" class="form-control" value="{{old('address', $apartment->address)}}" id="address" name="address" placeholder="Via, Città, Regione, Stato"> --}}
     </div>
@@ -125,10 +125,6 @@
       addressContainer.append(searchBoxHTML);
       const tomtomInput = document.getElementsByClassName("tt-search-box-input")[0];
 
-      
-      searchBoxHTML.addEventListener('input', (e)=>{
-        console.log(ttSearchBox.getValue());
-      })
       let date = {}
       ttSearchBox.on('tomtom.searchbox.resultsfound', function(data) {
         date = (data);
@@ -139,5 +135,6 @@
         lonInput.value = lon;
       });
       tomtomInput.setAttribute("name","address");
+      tomtomInput.value = '<?php echo $apartment->address ?>';
   </script>
   </form>
