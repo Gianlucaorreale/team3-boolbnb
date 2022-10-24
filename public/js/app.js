@@ -37324,6 +37324,7 @@ imageField.addEventListener('input', function () {
  */
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./delete-confirmation */ "./resources/js/delete-confirmation.js");
 __webpack_require__(/*! ./apartment-image-preview */ "./resources/js/apartment-image-preview.js");
 
 /***/ }),
@@ -37377,6 +37378,30 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/delete-confirmation.js":
+/*!*********************************************!*\
+  !*** ./resources/js/delete-confirmation.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var deleteForm = document.querySelectorAll(".delete-form");
+console.log(deleteForm);
+deleteForm.forEach(function (form) {
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    var hasConfirmed = confirm('Sei sicuro di voler eliminare questo post??');
+    console.log(hasConfirmed);
+    console.log(form);
+    if (hasConfirmed) {
+      form.submit();
+    }
+    ;
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -37395,8 +37420,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\laravel\team3-boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\laravel\team3-boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/danieledimento/Laravel/team3-boolbnb/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/danieledimento/Laravel/team3-boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

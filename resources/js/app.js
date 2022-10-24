@@ -5,4 +5,5 @@
  */
 
 require('./bootstrap');
+require('./delete-confirmation');
 require('./apartment-image-preview');

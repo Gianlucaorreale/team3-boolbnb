@@ -26,7 +26,7 @@
                 <a href="{{route('admin.apartments.edit', $apartment)}}" class="btn btn-warning">Edit</a>
               </div>
               <div class="col">
-                <form action="{{route('admin.apartments.destroy', $apartment->id)}}" method="POST">
+                <form class="delete-form" action="{{route('admin.apartments.destroy', $apartment->id)}}" method="POST">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">Delete</button>
