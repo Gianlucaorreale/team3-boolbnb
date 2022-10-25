@@ -19,11 +19,8 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        $apartments = Apartment::all();
-        $services = Service::all();
-        $sponsors = Sponsor::all();
-        $users = User::all();
-        return response()->json(compact('apartments','services','sponsors','users'));
+        $apartments = Apartment::orderBy('created_at', 'DESC')->with(['services','user'])->get();
+        return response()->json($apartments);
     }
 
     /**
@@ -43,9 +40,10 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($descriptive_title)
     {
-        //
+        $apartment = Apartment::with('services','user')->where('descriptive_title', $descriptive_title)->get();
+        return response()->json($apartment);
     }
 
     /**
