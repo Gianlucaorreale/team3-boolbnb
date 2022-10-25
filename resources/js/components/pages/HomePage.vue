@@ -1,7 +1,7 @@
 <template>
     
     <div>
-     <h1>CIAO MONDO</h1>
+     <h1>CIAO MONDO PiPPO</h1>
    
     </div>
 
