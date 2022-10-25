@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
@@ -26,3 +23,4 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->
         abort('404');
     })->where('any', '.*');
 });
+Route::get('/{any?}', 'Guest\HomeController@index')->name('guest.home')->where('any', '.*');
