@@ -37417,8 +37417,13 @@ deleteForm.forEach(function (form) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! /Users/danieledimento/Laravel/team3-boolbnb/resources/js/app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! /Users/danieledimento/Laravel/team3-boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! C:\Users\giorg\Desktop\team3-boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\giorg\Desktop\team3-boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> 1914c0c71b2ecd66a5221ab9becc5c0ee5dcf7c2
 
 
 /***/ })
