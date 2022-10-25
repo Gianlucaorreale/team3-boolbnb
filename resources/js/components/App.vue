@@ -1,10 +1,10 @@
 <template>
-    
-       <div id="root">
+    <div>
         <header></header>
-        <router-view></router-view>
-        CIAO MONDO PIPPO  
-       </div>
+        <main>
+            <router-view></router-view> 
+        </main>
+    </div>
    
 </template>
 
