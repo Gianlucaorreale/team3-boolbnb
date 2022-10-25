@@ -2092,7 +2092,7 @@ var render = function render() {
     staticClass: "btn btn-primary offset-2 col-8 mt-2",
     attrs: {
       to: {
-        name: "ApartmentDetailPage",
+        name: "apartment-detail",
         params: {
           id: _vm.apartment.descriptive_title
         }
@@ -2181,7 +2181,14 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div");
+  return _c("div", [_c("router-link", {
+    staticClass: "btn btn-primary offset-2 col-8 mt-2",
+    attrs: {
+      to: {
+        name: "apartments-list"
+      }
+    }
+  }, [_vm._v("\n        Vai agli appartamenti\n  ")])], 1);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -54061,15 +54068,15 @@ var routes = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   routes: [{
     path: '/',
     component: _components_pages_HomePage_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    name: 'HomePage'
+    name: 'home-page'
   }, {
     path: '/apartments',
     component: _components_pages_ApartmentsList_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-    name: 'ApartmentsList'
+    name: 'apartments-list'
   }, {
     path: '/apartment/:id',
     component: _components_pages_ApartmentDetailPage_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-    name: 'ApartmentDetailPage'
+    name: 'apartment-detail'
   }]
 });
 /* harmony default export */ __webpack_exports__["default"] = (routes);

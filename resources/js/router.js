@@ -11,9 +11,9 @@ const routes = new VueRouter({
   mode: 'history',
   linkExactActiveClass: 'active',
   routes:[
-    {path: '/',component: HomePage , name:'HomePage'},
-    {path: '/apartments',component: ApartmentsList ,name:'ApartmentsList'},
-    {path: '/apartment/:id',component: ApartmentDetailPage ,name:'ApartmentDetailPage'},
+    {path: '/',component: HomePage , name:'home-page'},
+    {path: '/apartments',component: ApartmentsList ,name:'apartments-list'},
+    {path: '/apartment/:id',component: ApartmentDetailPage ,name:'apartment-detail'},
   ]
 });
 export default routes;

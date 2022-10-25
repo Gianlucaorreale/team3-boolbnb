@@ -7,10 +7,10 @@
       <p>{{ apartment.address }}</p>
       <p>{{ pubblicata(apartment) }}</p>
       <router-link class="btn btn-primary offset-2 col-8 mt-2" 
-        :to="{name: 'ApartmentDetailPage', params:{ id : apartment.descriptive_title }}">
+        :to="{name: 'apartment-detail', params:{ id : apartment.descriptive_title }}">
         Vedi
       </router-link>
-      <!-- //da modificare con metodo professionale la presa dell id nell apartament -->
+      <!--#! da modificare con metodo professionale la presa dell id nell apartament -->
     </div>
   </div>  
 </template>
