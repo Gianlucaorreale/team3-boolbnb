@@ -112,6 +112,8 @@ class ApartmentController extends Controller
      */
     public function show(Apartment $apartment)
     {
+        if($apartment->user_id != Auth::id()) return abort('404');
+
         return view('admin.apartments.show', compact('apartment'));
     }
 
@@ -123,6 +125,8 @@ class ApartmentController extends Controller
      */
     public function edit(Apartment $apartment)
     {   
+        if($apartment->user_id != Auth::id()) return abort('404');
+
         $services = Service::all();
         $services_ids = $apartment->services->pluck('id')->toArray();
         return view('admin.apartments.edit', compact('apartment', 'services', 'services_ids'));
@@ -175,7 +179,7 @@ class ApartmentController extends Controller
                 'address.required' => 'Questo è un parametro obbligatorio',
 
                 'image.required' => 'Questo è un parametro obbligatorio',
-                //'image.mimes' => 'L\'immagine deve avere uno di questi formati: jpeg, jpg, svg, png ',
+                'image.mimes' => 'L\'immagine deve avere uno di questi formati: jpeg, jpg, svg, png ',
                 'image.image' => ' Il file deve essere un immagine'
             ]
         );
@@ -206,6 +210,8 @@ class ApartmentController extends Controller
      */
     public function destroy(Apartment $apartment)
     {
+        if($apartment->user_id != Auth::id()) return abort('404');
+
         if($apartment->image)Storage::delete($apartment->image);
         $apartment->delete();
         return redirect()->route('admin.apartments.index');
