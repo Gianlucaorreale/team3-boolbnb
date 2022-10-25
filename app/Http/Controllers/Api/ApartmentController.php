@@ -1,11 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Guest;
+namespace App\Http\Controllers\Api;
+
+use App\User;
+use App\Models\Apartment;
+use App\Models\Service;
+use App\Models\Sponsor;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class ApartmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,18 +19,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        
-        return view('guest.home');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $apartments = Apartment::all();
+        $services = Service::all();
+        $sponsors = Sponsor::all();
+        $users = User::all();
+        return response()->json(compact('apartments','services','sponsors','users'));
     }
 
     /**
@@ -46,17 +44,6 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
     {
         //
     }
