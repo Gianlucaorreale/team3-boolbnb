@@ -16,7 +16,7 @@
     @csrf
     {{-- descriptive_title --}}
     <div class="form-group">
-      <label for="descriptive_title">Titolo Descrittivo:</label>
+      <label for="descriptive_title">Titolo Descrittivo:<span class="text-danger"> *</span></label>
       <textarea class="form-control" id="descriptive_title" name="descriptive_title" rows="4" minlength="4" maxlength="255" required>
         {{old('descriptive_title', $apartment->descriptive_title)}}
       </textarea>
@@ -25,35 +25,35 @@
       {{-- num_rooms --}}
       <div class="col">
         <div class="form-group">
-          <label for="num_rooms">Numero Stanze:</label>
+          <label for="num_rooms">Numero Stanze:<span class="text-danger"> *</span></label>
           <input type="number" class="form-control" value="{{old('num_rooms', $apartment->num_rooms)}}" name="num_rooms" id="num_rooms" min="1" max="255" required value="1">
         </div>
       </div>
       {{-- num_bathroom --}}
       <div class="col">
         <div class="form-group">
-          <label for="num_bathroom">Numero Bagni:</label>
+          <label for="num_bathroom">Numero Bagni:<span class="text-danger"> *</span></label>
           <input type="number" class="form-control" value="{{old('num_bathroom', $apartment->num_bathroom)}}" name="num_bathroom" id="num_bathroom" min="1" max="255" required value="1">
         </div>
       </div>
       {{-- num_bed --}}
       <div class="col">
         <div class="form-group">
-          <label for="num_bed">Numero Letti:</label>
+          <label for="num_bed">Numero Letti:<span class="text-danger"> *</span></label>
           <input type="number" class="form-control" value="{{old('num_bed', $apartment->num_bed)}}" name="num_bed" id="num_bed" min="1" max="255" required value="1">
         </div>
       </div>
       {{-- square_meters --}}
       <div class="col">
         <div class="form-group">
-          <label for="square_meters">Metri Quadri:</label>
+          <label for="square_meters">Metri Quadri:<span class="text-danger"> *</span></label>
           <input type="number" class="form-control" value="{{old('square_meters', $apartment->square_meters)}}" name="square_meters" id="square_meters" min="5" required value="1">
         </div>
       </div>
     </div>
     {{-- address --}}
     <div class="form-group">
-      <label for="address">Indirizzo:</label>
+      <label for="address">Indirizzo:<span class="text-danger"> *</span></label>
       <div id="address-tomtom">   
       </div>
       <input id="lat" type="text" class="form-control" name="latitude" id="lat" value="{{old('latitude', $apartment->latitude)}}" hidden>
@@ -62,7 +62,8 @@
       {{-- <input type="text" class="form-control" value="{{old('address', $apartment->address)}}" id="address" name="address" placeholder="Via, Città, Regione, Stato"> --}}
     </div>
     {{-- services --}}
-    <div class="form-group">
+    <label for="services">Servizi:</label>
+    <div class="form-group" id="services">
       <div class="form-check">
         <div class="row row-cols-3 row-cols-md-6">
           @foreach ($services as $service)
@@ -83,7 +84,7 @@
     <div class="form-group">
       <div class="row">
         <div class="col-8">
-          <label for="image">Carica un'immagine:</label>
+          <label for="image">Carica un'immagine:<span class="text-danger"> *</span></label>
           <input value="{{old('image',$apartment->image)}}" type="file" class="form-control" name="image" id="image-field" placeholder="https://example.com/" size="30" required>
         </div>
         <div class="col-4">
@@ -104,7 +105,7 @@
       </div>
     </div>
 
-    <button type="submit" class="btn btn-primary">Aggiungi Appartamento</button>
+    <button type="submit" class="btn btn-primary">Salva</button>
     <script>
       var options = {
           searchOptions: {
@@ -135,6 +136,7 @@
         lonInput.value = lon;
       });
       tomtomInput.setAttribute("name","address");
+      tomtomInput.setAttribute("type","search");
       tomtomInput.value = '<?php echo $apartment->address ?>';
   </script>
   </form>
