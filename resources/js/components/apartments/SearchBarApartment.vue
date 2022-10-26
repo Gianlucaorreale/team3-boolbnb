@@ -1,15 +1,12 @@
 <template>
   <section>
-    <div class="container-fluid mt-5">
+    <div class="container mt-5">
       <div class="row">
-        <div class="col-6">
-          <div id="map"></div>
-        </div>
-        <div class="col-6">
+        <div class="col-12">
           <div class="input-group">
             <input type="text" class="form-control" :class="{ 'is-invalid': searchError }" placeholder="Location" v-model="dist" @keyup.enter="searchApartments"/>
             <button class="btn btn-outline-secondary" type="button" id="search" @click="searchApartments">
-              <i class="fa-solid fa-magnifying-glass"></i>
+              <i class="fa-solid fa-magnifying-glass"></i> Cerca
             </button>
           </div>
           <div class="col-12 py-4">
@@ -19,13 +16,17 @@
             <input v-model="radius" @change="getApartments" min="5" max="50" step="5" type="range" class="form-range" id="customRange1" :disabled="!dist"/>
             <p v-show="dist" class="m-0">Raggio attuale: {{ radius }} Km</p>
           </div>
-          <section id="detail-apartment" class="container-fluid my-5 p-5">
-            <h1 class="text-center" v-if="!apartments.length && !isLoading">
+          <div class="col-8 offset-2">
+            <div id="map"></div>
+          </div>
+          <TheLoader v-if="isLoading"/>
+          <section v-else id="detail-apartment" class="container-fluid my-5 p-5">
+            <h1 class="text-center" v-if="!apartments.length">
               La Ricerca non ha prodotto risultati!
             </h1>
 
-            <div v-if="!isLoading" class="row g-5">
-              <CardApartment
+            <div v-else class="container-card">
+              <CardApartment class="card-apartment"
                 v-for="apartment in apartments"
                 :key="apartment.id"
                 :apartment="apartment"
@@ -39,9 +40,10 @@
 </template>
 
 <script>
+import TheLoader from '../generics/TheLoader.vue';
 import CardApartment from './CardApartment.vue';
 export default {
-  components: { CardApartment },
+  components: { CardApartment, TheLoader },
   name: "SearchBarApartment",
   data() {
     return {
@@ -54,32 +56,26 @@ export default {
       lat: null,
       long: null,
       radius: 20,
-      optionsKm: [
-        { text: "20km", value: 20 },
-        { text: "30km", value: 30 },
-        { text: "50km", value: 50 },
-        { text: "100km", value: 100 },
-        { text: "200km", value: 200 },
-      ],
-      optionsBeds: [
-        { text: "1 letto", value: 1 },
-        { text: "2 letti", value: 2 },
-        { text: "3 letti", value: 3 },
-        { text: "4 letti", value: 4 },
-        { text: "5 letti", value: 5 },
-      ],
-      optionsRooms: [
-        { text: "1 stanza", value: 1 },
-        { text: "2 stanza", value: 2 },
-        { text: "3 stanza", value: 3 },
-        { text: "4 stanza", value: 4 },
-        { text: "5 stanza", value: 5 },
-      ],
     };
   },
   methods: {
+    fetchApartments(){
+      this.isLoading = true;
+      axios.get('http://127.0.0.1:8000/api/apartments').then(res=>{
+        this.apartments = res.data;
+      })
+      .catch((err) => {
+        console.error(err);
+      })
+      .then(() => {
+        console.log("chiamata terminata Appartamenti");
+        this.isLoading = false;
+        this.getMap();
+      });
+    },
     searchApartments() {
       this.searchError = false;
+      if (this.dist == null) return;
       if (this.dist) {
         const config = {
           params: {
@@ -173,13 +169,13 @@ export default {
           this.apartments.forEach((element) => {
             var marker = new tt.Marker()
               .setLngLat([
-                element.position.longitude,
-                element.position.latitude,
+                element.longitude,
+                element.latitude,
               ])
               .addTo(map);
             var popup = new tt.Popup({ offset: popupOffset }).setHTML(
-              `<p class="mt-1">${element.title_desc}</p>
-              <p class="m-0">${element.position.street}</p>`
+              `<p class="mt-1">${element.descriptive_title}</p>
+              <p class="m-0">${element.address}</p>`
             );
             marker.setPopup(popup);
           });
@@ -189,7 +185,7 @@ export default {
           key: "k8P3Rx9lwVUMwJiJA3JF9ARIMpojuobA",
           container: "map",
           center: [this.long, this.lat],
-          zoom: this.radius > 30 ? 6 : 8,
+          zoom: this.radius > 20 ? 8 : 10,
         });
         var popupOffset = 25;
         map.on("load", () => {
@@ -215,12 +211,22 @@ export default {
   mounted() {
     this.dist = this.$route.query.search;
     if (this.$route.query.search) this.searchApartments();
-    this.getApartments();
+    this.fetchApartments();
   },
 };
 </script>
 
 <style scoped lang="scss">
+.container-card{
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-wrap: wrap;
+  .card-apartment{
+    width: 320px;
+    margin-bottom: 30px;
+  }
+}
 .btn-outline-secondary {
   color: #2f4f4f;
   border-color: #2f4f4f;

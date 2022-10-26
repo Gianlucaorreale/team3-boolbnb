@@ -1,5 +1,5 @@
 <template>
-  <div class="card offset-3 col-6 mb-4">
+  <div class="card">
     <img class="card-img-top" width="100" height="100" :src="apartment.image" :alt="apartment.descriptive_title">
     <div class="card-body">
       <h5 class="card-title">{{ apartment.descriptive_title }}</h5>
