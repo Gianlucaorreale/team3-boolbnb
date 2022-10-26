@@ -1,18 +1,25 @@
 <template>
     <div class="apartment container">
-      <CardApartment :apartment="apartment"/>
+       <img :src="apartment.image" :alt="apartment.descriptive_title">
+       <h1>{{apartment.descriptive_title}}</h1>
+       <p>{{apartment.square_meters}}mq</p>
+       <address>{{apartment.address}}</address>
+       <ul>
+           <li v-for="service in apartment.services" :key="service.id" :service="service">
+            <img :src="service.label" alt="">
+            {{service.label}}
+          </li>
+       </ul>
     </div>
   </template>
   
   <script>
   import Axios from 'axios';
-import CardApartment from '../apartments/CardApartment.vue';
+
   
   export default {
       name: "ApartmentDetailPage",
-      components: {
-    CardApartment
-},
+      
       data() {
         return {
           apartment: {},

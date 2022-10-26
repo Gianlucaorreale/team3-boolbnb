@@ -37,6 +37,7 @@ class SponsorSeeder extends Seeder
             $new_sponsor->type = $sponsor['type'];
             $new_sponsor->duration = $sponsor['duration'];
             $new_sponsor->price = $sponsor['price'];
+           
 
             $new_sponsor->save();
         }

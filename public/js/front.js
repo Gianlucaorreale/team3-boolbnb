@@ -1964,14 +1964,9 @@ var Rome = [41.5330, 12.3040];
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _apartments_CardApartment_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../apartments/CardApartment.vue */ "./resources/js/components/apartments/CardApartment.vue");
-
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ApartmentDetailPage",
-  components: {
-    CardApartment: _apartments_CardApartment_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
-  },
   data: function data() {
     return {
       apartment: {}
@@ -2182,11 +2177,24 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "apartment container"
-  }, [_c("CardApartment", {
+  }, [_c("img", {
     attrs: {
-      apartment: _vm.apartment
+      src: _vm.apartment.image,
+      alt: _vm.apartment.descriptive_title
     }
-  })], 1);
+  }), _vm._v(" "), _c("h1", [_vm._v(_vm._s(_vm.apartment.descriptive_title))]), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.apartment.square_meters) + "mq")]), _vm._v(" "), _c("address", [_vm._v(_vm._s(_vm.apartment.address))]), _vm._v(" "), _c("ul", _vm._l(_vm.apartment.services, function (service) {
+    return _c("li", {
+      key: service.id,
+      attrs: {
+        service: service
+      }
+    }, [_c("img", {
+      attrs: {
+        src: service.label,
+        alt: ""
+      }
+    }), _vm._v("\n        " + _vm._s(service.label) + "\n      ")]);
+  }), 0)]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -54184,7 +54192,7 @@ var root = new Vue({
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _components_pages_HomePage_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/pages/HomePage.vue */ "./resources/js/components/pages/HomePage.vue");
 /* harmony import */ var _components_pages_ApartmentDetailPage_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/pages/ApartmentDetailPage.vue */ "./resources/js/components/pages/ApartmentDetailPage.vue");
 /* harmony import */ var _components_pages_ApartmentsList_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/pages/ApartmentsList.vue */ "./resources/js/components/pages/ApartmentsList.vue");
@@ -54193,8 +54201,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_5__["default"]);
-var routes = new vue_router__WEBPACK_IMPORTED_MODULE_5__["default"]({
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
+var routes = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',
   linkExactActiveClass: 'active',
   routes: [{
