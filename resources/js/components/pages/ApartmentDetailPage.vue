@@ -1,18 +1,28 @@
 <template>
-    <div class="apartment container">
-      <CardApartment :apartment="apartment"/>
+    <div class="apartment container d-flex justify-content-center align-items-center">
+       <div class="card p-2">
+           <h1>{{apartment.descriptive_title}}</h1>
+           <address><strong>{{apartment.address}}</strong></address>
+           <p>{{apartment.square_meters}}mq</p>
+           <div class="d-flex">
+            <img :src="apartment.image" :alt="apartment.descriptive_title">
+                <ul>
+                   <li v-for="service in apartment.services" :key="service.id" :service="service">
+                      {{service.label}}
+                  </li>
+              </ul>
+           </div>
+       </div>
     </div>
   </template>
   
   <script>
   import Axios from 'axios';
-import CardApartment from '../apartments/CardApartment.vue';
+
   
   export default {
       name: "ApartmentDetailPage",
-      components: {
-    CardApartment
-},
+      
       data() {
         return {
           apartment: {},
@@ -36,6 +46,8 @@ import CardApartment from '../apartments/CardApartment.vue';
   }
   </script>
   
-  <style>
-  
+  <style scoped lang="scss">
+  .apartment{
+    height: 100vh;
+  }
   </style>

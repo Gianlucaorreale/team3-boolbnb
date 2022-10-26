@@ -31,8 +31,14 @@ class ServiceSeeder extends Seeder
         forEach($services as $service) {
         $new_service = new Service();
 
+<<<<<<< HEAD
         $new_service->label = $service['label'];
         $new_service->icon = $service['icon'];
+=======
+        $new_service->icon = $service['icon'];
+
+        $new_service->label = $service['label'];
+>>>>>>> origin/feature-apartment-detail-page
         
         $new_service->save();
         };
