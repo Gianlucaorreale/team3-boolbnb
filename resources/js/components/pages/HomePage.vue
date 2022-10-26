@@ -4,14 +4,18 @@
             :to="{name: 'apartments-list'}">
             Vai agli appartamenti
       </router-link>
+      <SearchBarApartment/>
     </div>
 </template>
 
 <script>
+import SearchBarApartment from '../apartments/SearchBarApartment.vue';
+
 
  export default {
-    name:'HomePage',
- }
+    name: "HomePage",
+    components: { SearchBarApartment }
+}
 </script>
 
 <style>

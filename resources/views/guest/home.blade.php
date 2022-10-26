@@ -13,10 +13,16 @@
 
         <!-- FontAwesome -->
         <script src="https://kit.fontawesome.com/77b4cc17b1.js" crossorigin="anonymous"></script>
-        <!-- Styles -->
+
+        <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.53.0/maps/maps.css'>
+        <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.53.0/maps/maps-web.min.js"></script>
+        <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.53.0/services/services-web.min.js"></script>
+       
+    <!-- Styles -->
         <link rel="stylesheet" href="{{asset('css/app.css')}}">
 
          <script defer src="{{ asset('js/front.js') }}" ></script>
+         
     </head>
     <body>
       
