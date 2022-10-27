@@ -9,11 +9,13 @@
       </address>
       <p>{{ apartment.square_meters }}mq</p>
       <div class="d-flex">
-        <img
+        <img v-if="apartment.image"
           :src="require('../../../../public/storage/' + apartment.image)"
           :alt="apartment.descriptive_title"
           class="img-fluid"
         />
+        <img v-else src="https://img.freepik.com/free-vector/beautiful-home_24877-50819.jpg?w=2000"
+        class="img-fluid"/>
         <ul>
           <li
             v-for="service in apartment.services"

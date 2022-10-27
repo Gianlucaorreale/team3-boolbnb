@@ -1,6 +1,6 @@
 <template>
     <div>
-        <header></header>
+        <HeaderNav/>
         <main>
             <router-view></router-view> 
         </main>
@@ -9,15 +9,13 @@
 </template>
 
 <script>
+import HeaderNav from './includes/HeaderNav.vue'
     export default {
-       name:'App',
-       
-
+        name:'App',
+        components: { HeaderNav },
     }
 </script>
 
 <style>
-
-
 
 </style>

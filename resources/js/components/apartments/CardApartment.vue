@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <img class="card-img-top" width="100" height="100" :src="apartment.image" :alt="apartment.descriptive_title">
+    <img v-if="apartment.image" class="card-img-top" width="100" height="100" :src="require('../../../../public/storage/' + apartment.image)" :alt="apartment.descriptive_title">
     <div class="card-body">
       <h5 class="card-title">{{ apartment.descriptive_title }}</h5>
       <span class="card-text">camere:{{ apartment.num_bed }},bagni:{{ apartment.num_bathroom }}metri quadri:{{ apartment.square_meters }}</span>
