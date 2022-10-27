@@ -380,6 +380,139 @@ return [
     'visibility' => true,
     'image' => 'https://a0.muscache.com/im/pictures/e9305296-5f0b-4e67-92b5-aaa5f652e15b.jpg?im_w=1200',
 
+],
+
+// NAPOLI
+
+[
+  "address" => "via seminario26 24 80011 Acerra",
+  "square_meters" => "115",
+  "num_bathroom" => "2",
+  "descriptive_title" => "Appartamento",
+  "num_rooms" => "4",
+  "latitude" => "40.9603549",
+  "longitude" => "14.3791768",
+  'num_bed' => '1',
+  'visibility' => true,
+  'image' => 'https://a0.muscache.com/im/pictures/e9305296-5f0b-4e67-92b5-aaa5f652e15b.jpg?im_w=1200',
+
+],
+[
+  "address" => "Via Cisterna 5 80030 Cimitile",
+  "square_meters" => "65",
+  "num_bathroom" => "1",
+  "descriptive_title" => "Trilocale",
+  "num_rooms" => "3",
+  "latitude" => "40.9404654",
+  "longitude" => "14.5227667",
+  'num_bed' => '1',
+  'visibility' => true,
+  'image' => 'https://a0.muscache.com/im/pictures/e9305296-5f0b-4e67-92b5-aaa5f652e15b.jpg?im_w=1200',
+
+],
+[
+  "address" => "Via Raffaele Angiulli 36 80144 Napoli",
+  "square_meters" => "72",
+  "num_bathroom" => "1",
+  "descriptive_title" => "Appartamento",
+  "num_rooms" => "3",
+  "latitude" => "40.8919006",
+  "longitude" => "14.2581721",
+  'num_bed' => '1',
+  'visibility' => true,
+  'image' => 'https://a0.muscache.com/im/pictures/e9305296-5f0b-4e67-92b5-aaa5f652e15b.jpg?im_w=1200',
+
+],
+[
+  "address" => "Via Mauro Bordo, 80040 Napoli NA 80040 Terzigno",
+  "square_meters" => "200",
+  "num_bathroom" => "3",
+  "descriptive_title" => "Villino",
+  "num_rooms" => "5",
+  "latitude" => "40.7935303",
+  "longitude" => "14.4839765",
+  'num_bed' => '1',
+  'visibility' => true,
+  'image' => 'https://a0.muscache.com/im/pictures/e9305296-5f0b-4e67-92b5-aaa5f652e15b.jpg?im_w=1200',
+
+],
+[
+  "address" => "Via Angelo Camillo De Meis 181 80147 Napoli",
+  "square_meters" => "89",
+  "num_bathroom" => "2",
+  "descriptive_title" => "Trilocale",
+  "num_rooms" => "3",
+  "latitude" => "40.8573445",
+  "longitude" => "14.3534302",
+  'num_bed' => '1',
+  'visibility' => true,
+  'image' => 'https://a0.muscache.com/im/pictures/e9305296-5f0b-4e67-92b5-aaa5f652e15b.jpg?im_w=1200',
+
+],
+[
+  "address" => "via vecchia campana 40 80078 Pozzuoli",
+  "square_meters" => "202",
+  "num_bathroom" => "3",
+  "descriptive_title" => "Appartamento con ampio terrazzo",
+  "num_rooms" => "5",
+  "latitude" => "40.8418325",
+  "longitude" => "14.1206737",
+  'num_bed' => '1',
+  'visibility' => true,
+  'image' => 'https://a0.muscache.com/im/pictures/e9305296-5f0b-4e67-92b5-aaa5f652e15b.jpg?im_w=1200',
+
+],
+[
+  "address" => "Via Cegnacolo 6 80056 Ercolano",
+  "square_meters" => "58",
+  "num_bathroom" => "1",
+  "descriptive_title" => "Bilocale",
+  "num_rooms" => "2",
+  "latitude" => "40.8290662",
+  "longitude" => "14.3568040",
+  'num_bed' => '1',
+  'visibility' => true,
+  'image' => 'https://a0.muscache.com/im/pictures/e9305296-5f0b-4e67-92b5-aaa5f652e15b.jpg?im_w=1200',
+
+],
+[
+  "address" => "Via Fortino - Vico IV 15 80075 Forio",
+  "square_meters" => "95",
+  "num_bathroom" => "1",
+  "descriptive_title" => "Appartamento",
+  "num_rooms" => "3",
+  "latitude" => "40.7451391",
+  "longitude" => "13.8660559",
+  'num_bed' => '1',
+  'visibility' => true,
+  'image' => 'https://a0.muscache.com/im/pictures/e9305296-5f0b-4e67-92b5-aaa5f652e15b.jpg?im_w=1200',
+
+],
+[
+  "address" => "Via Roma 24 80030 Scisciano",
+  "square_meters" => "63",
+  "num_bathroom" => "1",
+  "descriptive_title" => "Open Space",
+  "num_rooms" => "1",
+  "latitude" => "40.9164221",
+  "longitude" => "14.4803513",
+  'num_bed' => '1',
+  'visibility' => true,
+  'image' => 'https://a0.muscache.com/im/pictures/e9305296-5f0b-4e67-92b5-aaa5f652e15b.jpg?im_w=1200',
+
+],
+[
+  "address" => "Traversa I Parrocchia 52 80146 Napoli",
+  "square_meters" => "58",
+  "num_bathroom" => "1",
+  "descriptive_title" => "Monolocale",
+  "num_rooms" => "1",
+  "latitude" => "40.8333676",
+  "longitude" => "14.3085639",
+  'num_bed' => '1',
+  'visibility' => true,
+  'image' => 'https://a0.muscache.com/im/pictures/e9305296-5f0b-4e67-92b5-aaa5f652e15b.jpg?im_w=1200',
+
 ]
 
 ];
