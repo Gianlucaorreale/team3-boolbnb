@@ -3,23 +3,17 @@
     <div class="container mt-5">
       <div class="row">
         <div class="col-12">
-          <div class="input-group">
-            <input
-              type="text"
-              class="form-control"
-              :class="{ 'is-invalid': searchError }"
-              placeholder="Location"
-              v-model="dist"
-              @keyup.enter="searchApartments"
-            />
-            <button
-              class="btn btn-outline-secondary"
-              type="button"
-              id="search"
-              @click="searchApartments"
-            >
-              <i class="fa-solid fa-magnifying-glass"></i> Cerca
-            </button>
+          <div class="form-group position-relative">
+            <div id="address-tomtom">   
+              <button
+                class="btn btn-outline-secondary search-btn"
+                type="button"
+                id="search"
+                @click="searchApartments"
+              >
+                <i class="fa-solid fa-magnifying-glass"></i> Cerca
+              </button>
+            </div>
           </div>
           <div class="col-12 py-4">
             <label for="customRange1" class="form-label fs-4">
@@ -69,6 +63,8 @@
 <script>
 import TheLoader from "../generics/TheLoader.vue";
 import CardApartment from "./CardApartment.vue";
+import SearchBox from '@tomtom-international/web-sdk-plugin-searchbox';
+import { services } from '@tomtom-international/web-sdk-services';
 export default {
   components: { CardApartment, TheLoader },
   name: "SearchBarApartment",
@@ -176,10 +172,6 @@ export default {
               if (
                 this.distance(lat, long, this.lat, this.long, "K") < this.radius
               ) {
-                console.log(lat, long);
-                console.log(this.lat, this.long);
-                console.log(this.distance(lat, long, this.lat, this.long, "K"));
-
                 return true;
               }
               return false;
@@ -225,7 +217,7 @@ export default {
           key: "k8P3Rx9lwVUMwJiJA3JF9ARIMpojuobA",
           container: "map",
           center: [this.long, this.lat],
-          zoom: this.radius > 20 ? 15 : 20,
+          zoom: this.radius > 20 ? 13 : 18,
         });
         var popupOffset = 25;
         map.on("load", () => {
@@ -244,8 +236,40 @@ export default {
         map.addControl(new tt.NavigationControl());
       }
     },
+    getSearchBox(){
+      var options = {
+          searchOptions: {
+              key: 'k8P3Rx9lwVUMwJiJA3JF9ARIMpojuobA',
+              language: 'it-IT',
+              limit: 10,
+          },
+          autocompleteOptions: {
+              key: 'k8P3Rx9lwVUMwJiJA3JF9ARIMpojuobA',
+              language: 'it-IT',
+          }
+      };
+      const addressContainer = document.getElementById("address-tomtom")
+      var ttSearchBox = new SearchBox(services, options);
+      var searchBoxHTML = ttSearchBox.getSearchBoxHTML();
+      addressContainer.append(searchBoxHTML);
+      const tomtomInput = document.getElementsByClassName("tt-search-box-input")[0];
+      tomtomInput.setAttribute("class","input-tomtom");
+      tomtomInput.addEventListener("input" , (e)=> {
+        this.dist = e.target.value;
+      })
+      tomtomInput.addEventListener("change", (e) => {
+        this.dist = e.target.value;
+      })
+      tomtomInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          this.dist = e.target.value;
+          this.searchApartments();
+        }
+      });
+    }
   },
   mounted() {
+    this.getSearchBox();
     this.dist = this.$route.query.search;
     if (this.$route.query.search) this.searchApartments();
     this.fetchApartments();
@@ -253,7 +277,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .container-card {
   display: flex;
   justify-content: space-between;
@@ -272,10 +296,71 @@ export default {
     color: white;
   }
 }
+.search-btn {
+  position: absolute;
+  z-index: 20;
+  top: 0;
+  right: 0px;
+  bottom: 0;
+}
+
+//Map Style
 #map {
   width: 100%;
   height: 400px;
   border-radius: 20px;
   box-shadow: black 5px 6px 20px -11px;
+}
+
+// SearchBox Style
+.tt-search-box-close-icon{
+  display: none;
+}
+.tt-search-box{
+  position: relative;
+  .tt-search-box-input-container {
+    border: 1px solid #ccc;
+    background-color: white;
+    padding: 9px 10px;
+    display: flex;
+    align-items: center;
+    transition: border-color .2s ease,box-shadow .2s ease;
+    .input-tomtom {
+      border: 0px;
+      width: 100%;
+    }
+    .input-tomtom:focus-visible {
+      outline: none;
+    }
+  }
+  .tt-search-box-result-list-container {
+    max-height: 270px;
+    overflow: auto;
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    box-shadow: 0 2px 9px -1px rgb(0 0 0 / 19%);
+    .tt-search-box-result-list {
+      background-color: #fff;
+      cursor: pointer;
+      height: auto;
+      padding: 10px;
+      border-bottom: 1px solid #edf2f7;
+      color: #7a7e80;
+      display: flex;
+      align-items: center;
+      .tt-search-box-result-list-text-content {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          margin-right: 10px;
+          display: inline;
+      }
+      .tt-search-box-result-list-bold {
+          font-weight: 700;
+          color: #000;
+      }
+    }
+  }
 }
 </style>

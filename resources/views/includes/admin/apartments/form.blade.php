@@ -58,8 +58,6 @@
       </div>
       <input id="lat" type="text" class="form-control" name="latitude" id="lat" value="{{old('latitude', $apartment->latitude)}}" hidden>
       <input id="lon" type="text" class="form-control" name="longitude" id="lon" value="{{old('longitude', $apartment->longitude)}}" hidden>
-
-      {{-- <input type="text" class="form-control" value="{{old('address', $apartment->address)}}" id="address" name="address" placeholder="Via, Città, Regione, Stato"> --}}
     </div>
     {{-- services --}}
     <label for="services">Servizi:</label>
