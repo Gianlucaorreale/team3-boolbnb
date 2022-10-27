@@ -1,18 +1,14 @@
 <template>
-  <div class="card">
+  <router-link class="link-card" 
+    :to="{name: 'apartment-detail', params:{ id : apartment.descriptive_title }}">
+    <div class="card">
     <img v-if="apartment.image" class="card-img-top" width="100" height="100" :src="require('../../../../public/storage/' + apartment.image)" :alt="apartment.descriptive_title">
     <div class="card-body">
       <h5 class="card-title">{{ apartment.descriptive_title }}</h5>
-      <span class="card-text">camere:{{ apartment.num_bed }},bagni:{{ apartment.num_bathroom }}metri quadri:{{ apartment.square_meters }}</span>
       <p>{{ apartment.address }}</p>
-      <p>{{ pubblicata(apartment) }}</p>
-      <router-link class="btn btn-primary offset-2 col-8 mt-2" 
-        :to="{name: 'apartment-detail', params:{ id : apartment.descriptive_title }}">
-        Vedi
-      </router-link>
-      <!--#! da modificare con metodo professionale la presa dell id nell apartament -->
-    </div>
-  </div>  
+      </div>
+    </div>  
+  </router-link>
 </template>
 
 <script>
@@ -23,14 +19,20 @@
         apartment:Object,
         },
     methods:{
-        pubblicata(apartment){
-            const apartmentDate = new Date(apartment.created_at);
-                let day = "0" + apartmentDate.getDate();
-                let month = apartmentDate.getMonth()+1;
-                let year = apartmentDate.getFullYear();
+        // pubblicata(apartment){
+        //     const apartmentDate = new Date(apartment.created_at);
+        //         let day = apartmentDate.getDate();
+        //         if(day < 10){
+        //           day = `0.${day}`;
+        //         }
+        //         let month = apartmentDate.getMonth()+1;
+        //         if (month < 10){
+        //           month = `0.${month}`;
+        //         }
+        //         let year = apartmentDate.getFullYear();
                     
-                return `${day}/${month}/${year}`;
-            },
+        //         return `${day}/${month}/${year}`;
+        //     },
         }
     };
 </script>
@@ -39,7 +41,13 @@
     ul{
         list-style-type: none;
     }
-
+    .link-card:hover {
+      text-decoration: none;
+      color: black;
+    }
+    .link-card {
+      color: black
+    }
 
 
 </style>

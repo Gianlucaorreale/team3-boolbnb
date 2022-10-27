@@ -1,17 +1,5 @@
 {
-    "/js/app.js": "/js/app.js?id=dd1a8fa3297df95a0371",
+    "/js/app.js": "/js/app.js?id=9ef7bd0376084633642c",
     "/css/app.css": "/css/app.css?id=e53b19594cd8e3e5dae9",
-<<<<<<< HEAD
-    "/js/front.js": "/js/front.js?id=997bec3c0bdd28d50a6b"
-=======
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-    "/js/front.js": "/js/front.js?id=7c89ab4acb3ed7fac605"
-=======
-    "/js/front.js": "/js/front.js?id=5d3deece94123b945886"
->>>>>>> Stashed changes
-=======
-    "/js/front.js": "/js/front.js?id=c9320316d4c94396a0fa"
->>>>>>> 65fd9626b08412d0dfe237d2cd78cc99628091a0
->>>>>>> f84cca91d010e04d0c57095c5e22aa596dddcb5a
+    "/js/front.js": "/js/front.js?id=dc70eb9c0374fdb7bbaa"
 }
