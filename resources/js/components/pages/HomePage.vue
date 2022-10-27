@@ -1,21 +1,20 @@
 <template>
-    
     <div>
-     <h1>CIAO MONDO</h1>
-   
+      <SearchBarApartment/>
     </div>
-
 </template>
 
 <script>
+import SearchBarApartment from '../apartments/SearchBarApartment.vue';
+
+
  export default {
-    name:'HomePage',
-    
- }
+    name: "HomePage",
+    components: { SearchBarApartment }
+}
 </script>
 
 <style>
-
 
 
 </style>
