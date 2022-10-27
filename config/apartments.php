@@ -247,5 +247,139 @@ return [
     'latitude' => '41.907416',
     'longitude' => '12.467263',
     'image' => 'https://a0.muscache.com/im/pictures/prohost-api/Hosting-49846957/original/3dab80f0-c0bc-48dc-b630-e88fa054d07a.jpeg?im_w=1200',
-  ]
+  ],
+
+  // MILANO
+
+  [
+    'descriptive_title' => "Fabbricati costruiti per esigenze industriali",
+    'address' => "Via delle Industrie 23/25 20060 Colturano",
+    'latitude' => "45.3747220",
+    'longitude' => "9.3387726",
+    'num_rooms' => '3',
+    'num_bathroom' => '1',
+    'num_bed' => '1',
+    'square_meters' => '100',
+    'visibility' => true,
+    'image' => 'https://a0.muscache.com/im/pictures/e9305296-5f0b-4e67-92b5-aaa5f652e15b.jpg?im_w=1200',
+
+],
+[
+    'descriptive_title' => "Posto auto",
+    'address' => "Via Redipuglia 41 20010 San Giorgio su Legnano",
+    'latitude' => "45.5711800",
+    'longitude' => "8.9039700",
+    'num_rooms' => '3',
+    'num_bathroom' => '1',
+    'num_bed' => '1',
+    'square_meters' => '100',
+    'visibility' => true,
+    'image' => 'https://a0.muscache.com/im/pictures/e9305296-5f0b-4e67-92b5-aaa5f652e15b.jpg?im_w=1200',
+
+],
+[
+    'descriptive_title' => "Abitazione di tipo economico",
+    'address' => "VIA CILEA 6 20096 Pioltello",
+    'latitude' => "45.5059618",
+    'longitude' => "9.3338136",
+    'num_rooms' => '3',
+    'num_bathroom' => '1',
+    'num_bed' => '1',
+    'square_meters' => '100',
+    'visibility' => true,
+    'image' => 'https://a0.muscache.com/im/pictures/e9305296-5f0b-4e67-92b5-aaa5f652e15b.jpg?im_w=1200',
+
+],
+[
+    'descriptive_title' => "Appartamento",
+    'address' => "via Giulio Natta 17 20042 Pessano con Bornago",
+    'latitude' => "45.5502763",
+    'longitude' => "9.3876228",
+    'num_rooms' => '3',
+    'num_bathroom' => '1',
+    'num_bed' => '1',
+    'square_meters' => '100',
+    'visibility' => true,
+    'image' => 'https://a0.muscache.com/im/pictures/e9305296-5f0b-4e67-92b5-aaa5f652e15b.jpg?im_w=1200',
+
+],
+[
+    'descriptive_title' => "Abitazione di tipo popolare",
+    'address' => "via Carroccio 5 20020 Garbagnate Milanese",
+    'latitude' => "45.5776442",
+    'longitude' => "9.0725446",
+    'num_rooms' => '3',
+    'num_bathroom' => '1',
+    'num_bed' => '1',
+    'square_meters' => '100',
+    'visibility' => true,
+    'image' => 'https://a0.muscache.com/im/pictures/e9305296-5f0b-4e67-92b5-aaa5f652e15b.jpg?im_w=1200',
+
+],
+[
+    'descriptive_title' => "Abitazione in villini",
+    'address' => "viale Eugenio Villoresi 21 20045 Lainate",
+    'latitude' => "45.5714559",
+    'longitude' => "9.0271448",
+    'num_rooms' => '3',
+    'num_bathroom' => '1',
+    'num_bed' => '1',
+    'square_meters' => '100',
+    'visibility' => true,
+    'image' => 'https://a0.muscache.com/im/pictures/e9305296-5f0b-4e67-92b5-aaa5f652e15b.jpg?im_w=1200',
+
+],
+[
+    'descriptive_title' => "Garage o autorimessa",
+    'address' => "Via Senigallia 9 20161 Milano",
+    'latitude' => "45.5318925",
+    'longitude' => "9.1710007",
+    'num_rooms' => '3',
+    'num_bathroom' => '1',
+    'num_bed' => '1',
+    'square_meters' => '100',
+    'visibility' => true,
+    'image' => 'https://a0.muscache.com/im/pictures/e9305296-5f0b-4e67-92b5-aaa5f652e15b.jpg?im_w=1200',
+
+],
+[
+    'descriptive_title' => "Abitazione di tipo economico",
+    'address' => "VIA CILEA 6 20096 Pioltello",
+    'latitude' => "45.5059618",
+    'longitude' => "9.3338136",
+    'num_rooms' => '3',
+    'num_bathroom' => '1',
+    'num_bed' => '1',
+    'square_meters' => '100',
+    'visibility' => true,
+    'image' => 'https://a0.muscache.com/im/pictures/e9305296-5f0b-4e67-92b5-aaa5f652e15b.jpg?im_w=1200',
+
+],
+[
+    'descriptive_title' => "Fabbricato",
+    'address' => "Via Leonardo da Vinci 20081 Abbiategrasso",
+    'latitude' => "45.3909147",
+    'longitude' => "8.9152209",
+    'num_rooms' => '3',
+    'num_bathroom' => '1',
+    'num_bed' => '1',
+    'square_meters' => '100',
+    'visibility' => true,
+    'image' => 'https://a0.muscache.com/im/pictures/e9305296-5f0b-4e67-92b5-aaa5f652e15b.jpg?im_w=1200',
+
+],
+[
+    'descriptive_title' => "Abitazione di tipo economico",
+    'address' => "via Giovanni Boccaccio 10 20090 Pantigliate",
+    'latitude' => "45.4389527",
+    'longitude' => "9.3546003",
+    'num_rooms' => '3',
+    'num_bathroom' => '1',
+    'num_bed' => '1',
+    'square_meters' => '100',
+    'visibility' => true,
+    'image' => 'https://a0.muscache.com/im/pictures/e9305296-5f0b-4e67-92b5-aaa5f652e15b.jpg?im_w=1200',
+
+]
+
 ];
