@@ -2,12 +2,12 @@
 
 @section('content')
 <div class="container text-center">
-  <a href="{{route('admin.apartments.create')}}" class="btn btn-primary mb-3">Inserisci appartamento</a>
+  <a href="{{route('admin.apartments.create')}}" class="btn btn-secondary mb-3"><i class="fa-solid fa-plus"></i> Inserisci appartamento</a>
   <div class="row">
 
     @forelse ($apartments as $apartment)
     <div class="col-12">
-      <div class="row border bg-light my-2 p-2">
+      <div class="row border rounded shadow bg-light my-2 p-2">
 
         {{-- title --}}
         <div class="col-12 text-left mb-2">
@@ -33,13 +33,14 @@
               <p>{{$apartment->square_meters}}</p>
             </div>
             {{-- services --}}
-            <div class="services">
+            <div class="services mb-3">
               <label for=""><strong>Servizi</strong></label>
-              <div class="d-flex flex-wrap mb-2"> 
+              <div class="d-flex flex-wrap"> 
                   @forelse ($apartment->services as $service)
-                  <span class="mr-2">   
+                  <span class="mr-3">   
                     <i class="{{$service->icon}}"></i>
-                    {{$service->label}}</span> 
+                    {{$service->label}}
+                  </span> 
                   @empty
                   <li>Nessun servizio</li>
                   @endforelse
@@ -47,23 +48,23 @@
             </div>  
               {{-- visible --}}
             <div class="visible">
-              <label for=""><strong>Visibile</strong></label>
-              <p> {{$apartment->visible == false ? 'Si' : 'No'}} </p>           
+              <label class="mr-2"><strong>Visibile</strong></label>
+              <span> <i @if($apartment->visible == false) class="fa-solid fa-check" @else class="fa-solid fa-xmark" @endif ></i> </span>           
             </div>
         </div>
 
         {{-- buttons --}}
         <div class="col-1 d-flex flex-column align-items-center">
             {{-- show --}}
-            <a href="{{route('admin.apartments.show', $apartment)}}" class="btn btn-success w-100 mb-2 py-2 px-2" style="font-size: 0.7rem">Vedi</a>
+            <a href="{{route('admin.apartments.show', $apartment)}}" class="btn-secondary mb-2 p-2 rounded" style="width: 30px"><i class="fa-solid fa-magnifying-glass"></i></a>
             {{-- edit --}}
-            <a href="{{route('admin.apartments.edit', $apartment)}}" class="btn btn-warning w-100 mb-2 py-2 px-2" style="font-size: 0.7rem">Modifica</a>
+            <a href="{{route('admin.apartments.edit', $apartment)}}" class="btn-secondary mb-2 p-2 rounded" style="width: 30px"><i class="fa-solid fa-pen"></i></a>
             {{-- delete --}}
             <form class="delete-form" action="{{route('admin.apartments.destroy', $apartment->id)}}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger delete w-100 mb-2 py-2 px-2" style="font-size: 0.7rem" data-toggle="modal" data-target="#exampleModal">
-                Elimina
+                <button type="submit" class="btn-secondary delete mb-2 p-2 w-100 border-0 rounded" style="width: 30px" data-toggle="modal" data-target="#exampleModal">
+                  <i class="fa-solid fa-trash"></i>
                 </button>
                 @include('includes.admin.apartments.modal')
             </form>
