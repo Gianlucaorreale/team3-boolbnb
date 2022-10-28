@@ -37,7 +37,9 @@
               <label for=""><strong>Servizi</strong></label>
               <div class="d-flex flex-wrap mb-2"> 
                   @forelse ($apartment->services as $service)
-                  <span class="mr-2">{{$service->label}}</span> 
+                  <span class="mr-2">   
+                    <i class="{{$service->icon}}"></i>
+                    {{$service->label}}</span> 
                   @empty
                   <li>Nessun servizio</li>
                   @endforelse

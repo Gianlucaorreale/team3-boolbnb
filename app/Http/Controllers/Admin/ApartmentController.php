@@ -149,7 +149,7 @@ class ApartmentController extends Controller
                 'num_bed' => 'required|numeric|min:1|max:255',
                 'square_meters' => 'required|numeric|min:5|max:60000',
                 'address' => 'required|string',
-                'image' => 'required|image',
+                'image' => 'nullable|image',
             ],
             [
                 'descriptive_title.required' => 'Devi inserire il titolo',
@@ -178,7 +178,6 @@ class ApartmentController extends Controller
 
                 'address.required' => 'Questo è un parametro obbligatorio',
 
-                'image.required' => 'Questo è un parametro obbligatorio',
                 'image.mimes' => 'L\'immagine deve avere uno di questi formati: jpeg, jpg, svg, png ',
                 'image.image' => ' Il file deve essere un immagine'
             ]
