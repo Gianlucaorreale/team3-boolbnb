@@ -1,8 +1,8 @@
 <template>
   <div
-    class="apartment container d-flex justify-content-center align-items-center"
+    class="apartment container"
   >
-    <div class="card p-2">
+    <div>
       <h1>{{ apartment.descriptive_title }}</h1>
       <address>
         <strong>{{ apartment.address }}</strong>
@@ -12,23 +12,35 @@
         <img v-if="apartment.image"
           :src="require('../../../../public/storage/' + apartment.image)"
           :alt="apartment.descriptive_title"
-          class="img-fluid"
+          
         />
         <img v-else src="https://img.freepik.com/free-vector/beautiful-home_24877-50819.jpg?w=2000"
-        class="img-fluid"/>
+        />
         <ul>
           <li
             v-for="service in apartment.services"
             :key="service.id"
             :service="service"
-          >
-            {{ service.label }}
+          >{{ service.label }}
           </li>
         </ul>
-      </div>
+       </div>
+    </div>
+    <div class="card mt-3 mb-3 p-3 rounded">
+      <form action="">
+          <div class="form-row">
+              <div class="form-group col-md-6 mt-3">
+                  <label for="inputEmail4"></label>
+                  <input type="email" class="form-control" placeholder="inserire email" id="inputEmail4">
+              </div>
+              <label for="exampleFormControlTextarea1"></label>
+              <textarea class="form-control mx-1" id="exampleFormControlTextarea1" placeholder="inserire testo" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary mt-3 mb-3">Invia</button>
+     </form>
     </div>
   </div>
-</template>
+  </template>
   
   <script>
 import Axios from "axios";
@@ -65,5 +77,12 @@ export default {
   <style scoped lang="scss">
 .apartment {
   height: 100vh;
-}
+  img{
+    height: 400px;
+    border-radius: 20px;
+    }
+    img:hover{
+      box-shadow: 5px 5px #adb5bd;
+    }
+  }
 </style>
