@@ -7,7 +7,7 @@
 
     @forelse ($apartments as $apartment)
     <div class="col-12">
-      <div class="row border rounded shadow bg-light my-2 p-2">
+      <div class="row border rounded shadow bg-white my-2 p-2">
 
         {{-- title --}}
         <div class="col-12 text-left mb-2">

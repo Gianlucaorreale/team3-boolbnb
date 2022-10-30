@@ -104,6 +104,7 @@
     </div>
 
     <button type="submit" class="btn btn-primary">Salva</button>
+    <a class="btn btn-secondary" href="{{route('admin.apartments.index')}}">Torna indietro</a>
     <script>
       var options = {
           searchOptions: {
