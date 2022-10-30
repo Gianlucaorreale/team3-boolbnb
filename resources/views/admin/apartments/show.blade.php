@@ -20,7 +20,7 @@
             </div>
     
             <div class="col-6">
-              <img class="img-fluid rounded shadow" src="{{asset('storage/'.$apartment->image)}}" alt="Card image cap">
+              <img class="w-100 h-100 rounded shadow" src="{{asset('storage/'.$apartment->image)}}" alt="Card image cap">
             </div>
     
             <div class="col-6 d-flex flex-column justify-content-between">
