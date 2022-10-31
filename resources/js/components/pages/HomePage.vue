@@ -10,7 +10,7 @@
         </h1>
 
         <div v-else class="text-center">
-          <router-link :to="{name:'apartments-list'}" class="text-center">
+          <router-link :to="{name:'apartments-list', query:{address : address}}" class="text-center">
             <button class="btn btn-primary">La ricerca ha trovato {{apartments.length}} appartamenti</button>
           </router-link>
         </div>
@@ -28,11 +28,13 @@ import SearchBarApartment from '../apartments/SearchBarApartment.vue';
     data(){
       return {
         apartments: [],
+        address: '',
       }
     },
     methods: {
       getApartments(value){
-        this.apartments = value;
+        this.apartments = value.apartments;
+        this.address = value.address;
       }
     }
 }

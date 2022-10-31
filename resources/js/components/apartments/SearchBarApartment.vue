@@ -53,7 +53,6 @@ export default {
     return {
       isLoading: false,
       apartments: [],
-      searchError: false,
       dist: null,
       bed: null,
       room: null,
@@ -80,7 +79,6 @@ export default {
         });
     },
     searchApartments() {
-      this.searchError = false;
       if (this.dist == null) return;
       if (this.dist) {
         const config = {
@@ -100,7 +98,6 @@ export default {
           })
           .catch((err) => {
             console.error(err);
-            this.searchError = true;
           })
           .then(() => {
             console.log("chiamata terminata LatLong");
@@ -168,7 +165,7 @@ export default {
           console.log("chiamata terminata Appartamenti");
           this.isLoading = false;
           this.getMap();
-          this.$emit('sendApartments', this.apartments);
+          this.$emit('sendApartments', {apartments: this.apartments, address: this.dist, radius : this.radius});
         });
     },
     getMap() {

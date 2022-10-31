@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\User;
-use App\Models\Apartment;
 use App\Models\Service;
-use App\Models\Sponsor;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ApartmentController extends Controller
+class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,11 +15,8 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        $apartments = Apartment::orderBy('created_at', 'DESC')
-        ->with(['services','user'])
-        ->get();
-
-        return response()->json($apartments);
+        $services = Service::all();
+        return response()->json($services);
     }
 
     /**
@@ -43,10 +36,9 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($descriptive_title)
+    public function show($id)
     {
-        $apartment = Apartment::with('services','user')->where('descriptive_title', $descriptive_title)->get();
-        return response()->json($apartment);
+        //
     }
 
     /**
