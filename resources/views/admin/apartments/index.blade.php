@@ -49,7 +49,8 @@
               {{-- visible --}}
             <div class="visible">
               <label class="mr-2"><strong>Visibile</strong></label>
-              <span> <i @if($apartment->visible == false) class="fa-solid fa-check" @else class="fa-solid fa-xmark" @endif ></i> </span>           
+              <span>
+                <i @if($apartment->visibility) class="fa-solid fa-check" @else class="fa-solid fa-xmark" @endif ></i> </span>           
             </div>
         </div>
 

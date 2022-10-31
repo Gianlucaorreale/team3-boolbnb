@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container-fluid p-5 bg-light">
+    <div class="container bg-light">
       <div class="row">
 
         {{-- apartment --}}
@@ -37,9 +37,9 @@
                 @endforelse
               </ul>
 
-              <div>
+              <div class="mb-3">
                 <h4 class="d-inline mr-2">Visibile:</h4>
-                <span> @if($apartment->visible == false) Si @else No @endif </span>           
+                <span> @if($apartment->visibility) Si @else No @endif </span>           
               </div>
 
               <div>
@@ -48,7 +48,7 @@
               </div>
 
               {{-- buttons --}}
-              <div class="d-flex justify-content-end">
+              <div class="d-flex justify-content-end mt-3">
                 
                 {{-- edit --}}
                 <a href="{{route('admin.apartments.edit', $apartment)}}" class="btn-secondary p-2 rounded mr-2">Modifica</i></a>
