@@ -19,6 +19,7 @@ Auth::routes();
 Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->group(function (){
     Route::get('/', 'HomeController@index')->name('home');
     Route::resource('apartments', 'ApartmentController');
+    Route::get('apartments/{apartment}/messages', 'MessageController@index')->name('apartments.messages.index');
     Route::get('/{any}', function () {
         abort('404');
     })->where('any', '.*');

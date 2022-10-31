@@ -83,7 +83,7 @@
       <div class="row">
         <div class="col-8">
           <label for="image">Carica un'immagine:<span class="text-danger"> *</span></label>
-          <input value="{{old('image',$apartment->image)}}" type="file" class="form-control" name="image" id="image-field" placeholder="https://example.com/" size="30" required>
+          <input type="file" class="form-control" name="image" id="image-field" placeholder="https://example.com/" size="30" @if(!$apartment->image) required @endif>
         </div>
         <div class="col-4">
           <img id="preview" class="img-fluid" src="{{$apartment->image ? asset('storage/'.$apartment->image) : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/330px-No-Image-Placeholder.svg.png?20200912122019'}}" alt="apartment-image-preview">
@@ -104,6 +104,7 @@
     </div>
 
     <button type="submit" class="btn btn-primary">Salva</button>
+    <a class="btn btn-secondary" href="{{route('admin.apartments.index')}}">Torna indietro</a>
     <script>
       var options = {
           searchOptions: {

@@ -54,33 +54,29 @@ class ApartmentController extends Controller
             ],
             [
                 'descriptive_title.required' => 'Devi inserire il titolo',
-                'descriptive_title.min' => 'il titolo deve essere minimo :min caratteri',
-                'descriptive_title.max' => 'il titolo deve essere massimo :max caratteri',
+                'descriptive_title.min' => 'Il titolo deve essere minimo :min caratteri',
+                'descriptive_title.max' => 'Il titolo deve essere massimo :max caratteri',
 
-                'num_rooms.required' => 'Questo è un parametro obbligatorio',
-                'num_rooms.numeric' => 'Questo campo deve essere un numero',
-                'num_rooms.min' => 'il numero delle stanze deve essere minimo :min',
-                'num_rooms.max' => 'il numero delle stanze deve essere massimo :max',
+                'num_rooms.required' => 'Devi inserire il numero di stanze',
+                'num_rooms.min' => 'Il numero delle stanze deve essere minimo :min',
+                'num_rooms.max' => 'Il numero delle stanze deve essere massimo :max',
 
-                'num_bathroom.required' => 'Questo è un parametro obbligatorio',
-                'num_bathroom.numeric' => 'Questo campo deve essere un numero',
-                'num_bathroom.min' => 'il numero dei bagni deve essere minimo :min',
-                'num_bathroom.max' => 'il numero dei bagni deve essere massimo :max',
+                'num_bathroom.required' => 'Devi inserire il numero di bagni',
+                'num_bathroom.min' => 'Il numero dei bagni deve essere minimo :min',
+                'num_bathroom.max' => 'Il numero dei bagni deve essere massimo :max',
 
-                'num_bed.required' => 'Questo è un parametro obbligatorio',
-                'num_bed.numeric' => 'Questo campo deve essere un numero',
-                'num_bed.min' => 'il numero dei letti deve essere minimo :min',
-                'num_bed.max' => 'il numero dei letti deve essere massimo :max',
+                'num_bed.required' => 'Devi inserire il numero di letti',
+                'num_bed.min' => 'Il numero dei letti deve essere minimo :min',
+                'num_bed.max' => 'Il numero dei letti deve essere massimo :max',
 
-                'square_meters.required' => 'Questo è un parametro obbligatorio',
-                'square_meters.numeric' => 'Questo campo deve essere un numero',
-                'square_meters.min' => 'i metri quadri devono essere minimo :min',
-                'square_meters.max' => 'i metri quadri devono essere massimo :max',
+                'square_meters.required' => 'Devi inserire i metri quadri',
+                'square_meters.min' => 'I metri quadri devono essere minimo :min',
+                'square_meters.max' => 'I metri quadri devono essere massimo :max',
 
-                'address.required' => 'Questo è un parametro obbligatorio',
+                'address.required' => 'Devi inserire l\'indirizzo',
 
-                'image.required' => 'Questo è un parametro obbligatorio',
-                //'image.mimes' => 'L\'immagine deve avere uno di questi formati: jpeg, jpg, svg, png ',
+                'image.required' => 'Devi inserire un\'immagine',
+                'image.mimes' => 'L\'immagine deve avere uno di questi formati: jpeg, jpg, svg, png ',
                 'image.image' => ' Il file deve essere un immagine'
             ]
         );
@@ -149,36 +145,32 @@ class ApartmentController extends Controller
                 'num_bed' => 'required|numeric|min:1|max:255',
                 'square_meters' => 'required|numeric|min:5|max:60000',
                 'address' => 'required|string',
-                'image' => 'required|image',
+                'image' => 'nullable|image',
             ],
             [
                 'descriptive_title.required' => 'Devi inserire il titolo',
-                'descriptive_title.min' => 'il titolo deve essere minimo :min caratteri',
-                'descriptive_title.max' => 'il titolo deve essere massimo :max caratteri',
+                'descriptive_title.min' => 'Il titolo deve essere minimo :min caratteri',
+                'descriptive_title.max' => 'Il titolo deve essere massimo :max caratteri',
 
-                'num_rooms.required' => 'Questo è un parametro obbligatorio',
-                'num_rooms.numeric' => 'Questo campo deve essere un numero',
-                'num_rooms.min' => 'il numero delle stanze deve essere minimo :min',
-                'num_rooms.max' => 'il numero delle stanze deve essere massimo :max',
+                'num_rooms.required' => 'Devi inserire il numero di stanze',
+                'num_rooms.min' => 'Il numero delle stanze deve essere minimo :min',
+                'num_rooms.max' => 'Il numero delle stanze deve essere massimo :max',
 
-                'num_bathroom.required' => 'Questo è un parametro obbligatorio',
-                'num_bathroom.numeric' => 'Questo campo deve essere un numero',
-                'num_bathroom.min' => 'il numero dei bagni deve essere minimo :min',
-                'num_bathroom.max' => 'il numero dei bagni deve essere massimo :max',
+                'num_bathroom.required' => 'Devi inserire il numero di bagni',
+                'num_bathroom.min' => 'Il numero dei bagni deve essere minimo :min',
+                'num_bathroom.max' => 'Il numero dei bagni deve essere massimo :max',
 
-                'num_bed.required' => 'Questo è un parametro obbligatorio',
-                'num_bed.numeric' => 'Questo campo deve essere un numero',
-                'num_bed.min' => 'il numero dei letti deve essere minimo :min',
-                'num_bed.max' => 'il numero dei letti deve essere massimo :max',
+                'num_bed.required' => 'Devi inserire il numero di letti',
+                'num_bed.min' => 'Il numero dei letti deve essere minimo :min',
+                'num_bed.max' => 'Il numero dei letti deve essere massimo :max',
 
-                'square_meters.required' => 'Questo è un parametro obbligatorio',
-                'square_meters.numeric' => 'Questo campo deve essere un numero',
-                'square_meters.min' => 'i metri quadri devono essere minimo :min',
-                'square_meters.max' => 'i metri quadri devono essere massimo :max',
+                'square_meters.required' => 'Devi inserire i metri quadri',
+                'square_meters.min' => 'I metri quadri devono essere minimo :min',
+                'square_meters.max' => 'I metri quadri devono essere massimo :max',
 
-                'address.required' => 'Questo è un parametro obbligatorio',
+                'address.required' => 'Devi inserire l\'indirizzo',
 
-                'image.required' => 'Questo è un parametro obbligatorio',
+                'image.required' => 'Devi inserire un\'immagine',
                 'image.mimes' => 'L\'immagine deve avere uno di questi formati: jpeg, jpg, svg, png ',
                 'image.image' => ' Il file deve essere un immagine'
             ]
