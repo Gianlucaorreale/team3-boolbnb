@@ -46,7 +46,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.apartments.index') }}">My Apartments</a>
+                            <a class="nav-link {{ Request::is('admin/apartments*') ? 'active' : '' }}" href="{{ route('admin.apartments.index') }}">My Apartments</a>
                         </li>
                     </ul>
 
