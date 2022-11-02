@@ -26,18 +26,35 @@
         </ul>
        </div>
     </div>
-    <div class="card mt-3 mb-3 p-3 rounded">
-      <form action="">
+    <div class="row">
+      <div class="col-8">
+
+      </div>
+      <div class="col-4 card mt-3 mb-3 p-3 rounded">
+        <h3>Manda un messaggio.</h3>
+        <div v-if="errors">
+          <p v-if="errors.email">{{errors.email}}</p>
+          <p v-if="errors.content">{{errors.content}}</p>
+        </div>
+        <div v-if="sent">
+          <p>Messaggio inviato con successo</p>
+        </div>
+        <form @submit.prevent="sendForm()">
           <div class="form-row">
-              <div class="form-group col-md-6 mt-3">
-                  <label for="inputEmail4"></label>
-                  <input type="email" class="form-control" placeholder="inserire email" id="inputEmail4">
-              </div>
-              <label for="exampleFormControlTextarea1"></label>
-              <textarea class="form-control mx-1" id="exampleFormControlTextarea1" placeholder="inserire testo" rows="3"></textarea>
+            <div class="form-group col-md-12 mt-3">
+              <label for="email">Email:</label>
+              <input type="email" name="email" class="form-control" placeholder="inserire email" v-model="form.email" id="email" required>
+            </div>
+            <div class="form-group col-md-12 mt-3">
+              <label for="content">Testo:</label>
+              <textarea class="form-control mx-1" name="content" id="content" placeholder="inserire testo" v-model="form.content" rows="4" required></textarea>
+            </div>
           </div>
-          <button type="submit" class="btn btn-primary mt-3 mb-3">Invia</button>
-     </form>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary mt-3 mb-3">Invia</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
   </template>
@@ -50,14 +67,42 @@ export default {
 
   data() {
     return {
+      form: {
+        content: '',
+        email: '',
+      },
+      sent: false,
+      errors: {},
       apartment: {},
+      isLoading: false,
     };
   },
   methods: {
+    sendForm() {
+      this.isLoading = true;
+      this.sent = false;
+      Axios.post('http://localhost:8000/api/apartments/email', [this.apartment, this.form])
+      .then(res => {
+        this.form.content = '';
+        this.form.email = '';
+        this.errors = {};
+        if (res.data.errors) {
+          if (res.data.errors.email) this.errors.email = res.data.errors.email[0];
+          if (res.data.errors.content) this.errors.content = res.data.errors.content[0];
+        } else {
+          this.sent = true;
+        };
+      }).catch(err =>{
+        console.log(err);
+      })
+      .then(()=>{
+        console.log('Chiamata Terminata')
+        this.isLoading = false;
+      })
+    },
     fetchApartment() {
       Axios.get("http://localhost:8000/api/apartments/" + this.$route.params.id)
         .then((res) => {
-          console.log(res);
           this.apartment = res.data[0];
         })
         .catch((err) => {
@@ -67,6 +112,7 @@ export default {
           console.log("chiamata terminata!");
         });
     },
+    
   },
   mounted() {
     this.fetchApartment();

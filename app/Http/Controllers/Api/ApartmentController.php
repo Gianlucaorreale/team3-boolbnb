@@ -6,7 +6,9 @@ use App\User;
 use App\Models\Apartment;
 use App\Models\Service;
 use App\Models\Sponsor;
+use App\Models\Message;
 
+use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -29,9 +31,31 @@ class ApartmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function sendEmail(Request $request)
     {
-        //
+        $data = $request->all();
+        $apartment = $data[0];
+        $form = $data[1];
+        $validation = Validator::make($form,
+        [
+            'email' => 'required|email',
+            'content' => 'required|string',
+        ],[
+            'email.required' => 'L\'email è obbligatoria',
+            'email.email' => 'La mail inserita non è valida',
+            'content.required' => 'Il contenuto del messsaggio non può esssere vuoto',
+        ]);
+
+        if($validation->fails()) {
+            return response()->json(['errors' => $validation->errors()]);
+        }
+        $new_message = new Message();
+        $new_message->apartment_id = $apartment['id'];
+        $new_message->email = $form['email'];
+        $new_message->content = $form['content'];
+        $new_message->save();
+        
+        return response()->json([$new_message]);
     }
 
     /**
