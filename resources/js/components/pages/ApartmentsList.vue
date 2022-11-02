@@ -83,9 +83,17 @@
                     if (!this.bathroom) return true;
                     if (apartment.num_bathroom == this.bathroom) return true;
                 });
-                // this.apartmentsFilter = this.apartmentsFilter.filter(apartment => {
-
-                // });
+                if(this.service){
+                    this.service.forEach((ser) =>{
+                        
+                        this.apartmentsFilter = this.apartmentsFilter.filter(apartment => {
+                            const apartmentServices = apartment.services.map((apartmentService) => {
+                                return apartmentService.id
+                            });
+                            if (apartmentServices.includes(ser)) return true;
+                        });
+                    })
+                }
                 return this.apartmentsFilter
             }
         },
