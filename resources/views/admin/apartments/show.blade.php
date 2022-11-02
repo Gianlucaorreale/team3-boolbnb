@@ -19,11 +19,11 @@
               <p><strong>{{$apartment->square_meters}} mq</strong></p>
             </div>
     
-            <div class="col-6">
+            <div class="col-12 col-lg-6">
               <img class="w-100 h-100 rounded shadow" src="{{asset('storage/'.$apartment->image)}}" alt="Card image cap">
             </div>
     
-            <div class="col-6 d-flex flex-column justify-content-between">
+            <div class="col-12 col-lg-6 p-3 d-flex flex-column justify-content-between">
               <h4>Servizi:</h4>
               <ul class="list-unstyled p-0">
                 @forelse ($apartment->services as $service)
@@ -73,7 +73,27 @@
 
         {{-- messages --}}
         <div class="col-12 messages p-4 border rounded shadow bg-white mb-2">
-          <h1>Messaggi</h1>
+          <h1>Messaggi: {{count($messages)}}</h1>
+          <div class="row">
+            @forelse ($messages as $message)
+            <div class="col-12 my-3">
+              <div class="card p-3">
+                <div class="row">
+                  <div class="col-4">
+                    <h3>Da:</h3>
+                    <p class="bold">{{$message->email}}</p>
+                  </div>
+                  <div class="col-8">
+                    <h3>Testo:</h3>
+                    <p >{{$message->content}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            @empty
+            
+            @endforelse
+          </div>
         </div>
 
         {{-- views --}}
