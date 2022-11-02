@@ -1,47 +1,56 @@
 <template>
     <div class="container">
         <form action="" method="get">
-            <div class="d-flex">
+            <div class="row my-3">
                 <!-- Choose beds -->
-                <label for="bed">
-                    Choose the num of beds
-                </label>
-                <select v-model="bed" name="bed" id="bed">
-                    <option v-for="bed in beds" :key="bed" :value="bed">{{bed}}</option>
-                </select>
+                <div class="col">
+                    <label for="bed">
+                        Choose the num of beds:
+                    </label>
+                    <select class="custom-select" v-model="bed" name="bed" id="bed">
+                        <option selected value="">Scegli...</option>
+                        <option v-for="bed in beds" :key="bed" :value="bed">{{bed}}</option>
+                    </select>
+                </div>
 
                 <!-- Choose rooms -->
-                <label for="room">
-                    Choose the num of rooms
-                </label>
-                <select v-model="room" name="room" id="room">
-                    <option v-for="room in rooms" :key="room" :value="room">{{room}}</option>
-                </select>
+                <div class="col">
+                    <label for="room">
+                        Choose the num of rooms:
+                    </label>
+                    <select class="custom-select" v-model="room" name="room" id="room">
+                        <option selected value="">Scegli...</option>
+                        <option v-for="room in rooms" :key="room" :value="room">{{room}}</option>
+                    </select>
+                </div>
 
                 <!-- Choose bathrooms -->
-                <label for="bathroom">
-                    Choose the num of bathrooms
-                </label>
-                <select v-model="bathroom" name="bathroom" id="bathroom">
-                    <option v-for="bathroom in bathrooms" :key="bathroom" :value="bathroom">{{bathroom}}</option>
-                </select>
+                <div class="col">
+                    <label for="bathroom">
+                        Choose the num of bathrooms:
+                    </label>
+                    <select class="custom-select" v-model="bathroom" name="bathroom" id="bathroom">
+                        <option selected value="">Scegli...</option>
+                        <option v-for="bathroom in bathrooms" :key="bathroom" :value="bathroom">{{bathroom}}</option>
+                    </select>
+                </div>
             </div>
             <div>
-                <h3>Choose your services</h3>
+                <h3>Choose your services:</h3>
                 <div class="row">
-                    <div class="col-3" v-for="item in services" :key="item.id">
+                    <div class="col-6 col-lg-3" v-for="item in services" :key="item.id">
                         <input class="mr-1" :id="item.label" name="services[]" type="checkbox" :value="item.id" v-model="service">
-                        <label :for="item.label">{{item.label}}</label>
+                        <label :for="item.label">
+                            <i :class="item.icon + ' mr-2'"></i>
+                            {{item.label}}
+                        </label>
                     </div>
                 </div>
             </div>
         </form>
-        <button class="btn btn-primary" @click="$router.back()">Torna indietro</button>
-        <div class="d-flex flex-wrap pt-4 justify-content-center">
-            <ul class="mb-4">
-                <CardApartment v-for="apartment in filterApartments" :key="apartment.id" :apartment="apartment" />
-            </ul>
-        </div>
+        <ul class="row p-0">
+            <CardApartment v-for="apartment in filterApartments" :key="apartment.id" :apartment="apartment" />
+        </ul>
     </div>
 </template>
 
