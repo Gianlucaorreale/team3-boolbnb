@@ -1,13 +1,14 @@
 <template>
-  <router-link class="link-card" 
+  <router-link class="link-card col-md-4 col-lg-3 my-3" 
     :to="{name: 'apartment-detail', params:{ id : apartment.descriptive_title }}">
     <div class="card">
-    <img v-if="apartment.image" class="card-img-top" width="100" height="100" :src="require('../../../../public/storage/' + apartment.image)" :alt="apartment.descriptive_title">
-    <div class="card-body">
-      <h5 class="card-title">{{ apartment.descriptive_title }}</h5>
-      <p>{{ apartment.address }}</p>
+      <img v-if="apartment.image" class="img-fluid card-img-top" :src="require('../../../../public/storage/' + apartment.image)" :alt="apartment.descriptive_title">
+      <img v-else class="img-fluid card-img-top" src="https://img.freepik.com/free-vector/beautiful-home_24877-50819.jpg?w=2000" alt="no-image">
+      <div class="card-body">
+        <h5 class="card-title">{{ apartment.descriptive_title }}</h5>
+        <p>{{ apartment.address }}</p>
       </div>
-    </div>  
+    </div>
   </router-link>
 </template>
 
