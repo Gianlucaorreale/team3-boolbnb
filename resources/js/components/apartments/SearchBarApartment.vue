@@ -35,25 +35,6 @@
           <div class="col-8 offset-2">
             <div id="map"></div>
           </div>
-          <TheLoader v-if="isLoading" />
-          <section
-            v-else
-            id="detail-apartment"
-            class="container-fluid my-5 p-5"
-          >
-            <h1 class="text-center" v-if="!apartments.length">
-              La Ricerca non ha prodotto risultati!
-            </h1>
-
-            <div v-else class="container-card">
-              <CardApartment
-                class="card-apartment"
-                v-for="apartment in apartments"
-                :key="apartment.id"
-                :apartment="apartment"
-              />
-            </div>
-          </section>
         </div>
       </div>
     </div>
@@ -72,7 +53,6 @@ export default {
     return {
       isLoading: false,
       apartments: [],
-      searchError: false,
       dist: null,
       bed: null,
       room: null,
@@ -99,7 +79,6 @@ export default {
         });
     },
     searchApartments() {
-      this.searchError = false;
       if (this.dist == null) return;
       if (this.dist) {
         const config = {
@@ -119,7 +98,6 @@ export default {
           })
           .catch((err) => {
             console.error(err);
-            this.searchError = true;
           })
           .then(() => {
             console.log("chiamata terminata LatLong");
@@ -187,6 +165,7 @@ export default {
           console.log("chiamata terminata Appartamenti");
           this.isLoading = false;
           this.getMap();
+          this.$emit('sendApartments', {apartments: this.apartments, address: this.dist, radius : this.radius});
         });
     },
     getMap() {
@@ -278,16 +257,6 @@ export default {
 </script>
 
 <style lang="scss">
-.container-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  flex-wrap: wrap;
-  .card-apartment {
-    width: 320px;
-    margin-bottom: 30px;
-  }
-}
 .btn-outline-secondary {
   color: #2f4f4f;
   border-color: #2f4f4f;

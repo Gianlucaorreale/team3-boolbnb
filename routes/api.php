@@ -18,7 +18,11 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/apartments','Api\ApartmentController@index');
 Route::get('/apartments/{descriptive_title}', 'Api\ApartmentController@show');
+<<<<<<< HEAD
 Route::post('/apartments/email', 'Api\ApartmentController@sendEmail');
+=======
+Route::get('/services', 'Api\ServiceController@index');
+>>>>>>> feature-filters-apartments
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
