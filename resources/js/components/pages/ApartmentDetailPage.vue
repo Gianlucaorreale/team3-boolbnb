@@ -39,6 +39,7 @@
         <div v-if="sent">
           <p>Messaggio inviato con successo</p>
         </div>
+        
         <form @submit.prevent="sendForm()">
           <div class="form-row">
             <div class="form-group col-md-12 mt-3">
@@ -56,11 +57,19 @@
         </form>
       </div>
     </div>
+    
+      <div class="col-8 offset-2">
+            <div id="map">
+
+      </div>
+      
+    </div>
   </div>
   </template>
   
   <script>
 import Axios from "axios";
+
 
 export default {
   name: "ApartmentDetailPage",
@@ -71,6 +80,8 @@ export default {
         content: '',
         email: '',
       },
+      lat: '',
+      long: '',
       sent: false,
       errors: {},
       apartment: {},
@@ -104,18 +115,52 @@ export default {
       Axios.get("http://localhost:8000/api/apartments/" + this.$route.params.id)
         .then((res) => {
           this.apartment = res.data[0];
+          this.lat = this.apartment.latitude;
+          this.long = this.apartment.longitude;
         })
         .catch((err) => {
           console.error(err);
         })
         .then(() => {
           console.log("chiamata terminata!");
+          this.getMap();
         });
     },
+
+    
+
+    
+    
+    getMap() {
+      
+        const map = tt.map({
+          key: "k8P3Rx9lwVUMwJiJA3JF9ARIMpojuobA",
+          container: "map",
+          center: [this.long, this.lat],
+          zoom : 15,
+        });
+        var popupOffset = 25;
+        map.on("load", () => {
+          
+            var marker = new tt.Marker()
+              .setLngLat([this.lat, this.long])
+              .addTo(map);
+            var popup = new tt.Popup({ offset: popupOffset }).setHTML(
+              `<p class="mt-1">${this.apartment.descriptive_title}</p>
+                <p class="m-0">${this.apartment.address}</p>`
+            );
+            marker.setPopup(popup);
+          });
+        
+        map.addControl(new tt.FullscreenControl());
+        map.addControl(new tt.NavigationControl());
+      
+    },
+    
     
   },
   mounted() {
-    this.fetchApartment();
+   this.fetchApartment();
   },
 };
 </script>
