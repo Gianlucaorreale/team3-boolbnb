@@ -60,8 +60,7 @@
     
       <div class="col-8 offset-2">
             <div id="map">
-
-      </div>
+            </div>
       
     </div>
   </div>
@@ -141,9 +140,8 @@ export default {
         });
         var popupOffset = 25;
         map.on("load", () => {
-          
             var marker = new tt.Marker()
-              .setLngLat([this.lat, this.long])
+              .setLngLat([this.long, this.lat])
               .addTo(map);
             var popup = new tt.Popup({ offset: popupOffset }).setHTML(
               `<p class="mt-1">${this.apartment.descriptive_title}</p>
