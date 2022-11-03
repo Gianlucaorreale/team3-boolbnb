@@ -95,12 +95,6 @@
             @endforelse
           </div>
         </div>
-
-        {{-- views --}}
-        <div class="col-12 views p-4 border rounded shadow bg-white mb-2">
-          <h1>Visualizzazioni</h1>
-        </div>
-
       </div>
     </div>
 @endsection
