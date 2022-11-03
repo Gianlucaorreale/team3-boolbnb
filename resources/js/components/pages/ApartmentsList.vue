@@ -62,6 +62,24 @@
             </label>
           </div>
         </div>
+        <div class="row" v-show="dist">
+          <div class="col-12 py-4">
+            <label for="customRange1" class="form-label fs-4">
+              Seleziona il raggio
+            </label>
+            <input
+              v-model="radius"
+              @change="getApartments"
+              min="0"
+              max="50"
+              step="1"
+              type="range"
+              class="form-range"
+              id="customRange1"
+            />
+            <p class="m-0">Raggio attuale: {{ radius }} Km</p>
+          </div>
+        </div>
       </div>
     </form>
     <ul class="row p-0">
@@ -71,6 +89,7 @@
         :apartment="apartment"
       />
     </ul>
+    <div id="map"></div>
   </div>
 </template>
 
@@ -213,7 +232,55 @@ export default {
         })
         .then(() => {
           console.log("chiamata terminata Appartamenti");
+          this.getMap()
         });
+    },
+    getMap() {
+      if (!this.lat && !this.long) {
+        const map = tt.map({
+          key: "k8P3Rx9lwVUMwJiJA3JF9ARIMpojuobA",
+          container: "map",
+          center: [12.496366, 41.902782],
+          zoom: 4,
+        });
+        map.addControl(new tt.FullscreenControl());
+        map.addControl(new tt.NavigationControl());
+        var popupOffset = 25;
+        map.on("load", () => {
+          this.apartments.forEach((element) => {
+            var marker = new tt.Marker()
+              .setLngLat([element.longitude, element.latitude])
+              .addTo(map);
+            var popup = new tt.Popup({ offset: popupOffset }).setHTML(
+              `<p class="mt-1">${element.descriptive_title}</p>
+              <p class="m-0">${element.address}</p>`
+            );
+            marker.setPopup(popup);
+          });
+        });
+      } else {
+        const map = tt.map({
+          key: "k8P3Rx9lwVUMwJiJA3JF9ARIMpojuobA",
+          container: "map",
+          center: [this.long, this.lat],
+          zoom: this.radius > 20 ? 13 : 18,
+        });
+        var popupOffset = 25;
+        map.on("load", () => {
+          this.apartments.forEach((element) => {
+            var marker = new tt.Marker()
+              .setLngLat([element.longitude, element.latitude])
+              .addTo(map);
+            var popup = new tt.Popup({ offset: popupOffset }).setHTML(
+              `<p class="mt-1">${element.descriptive_title}</p>
+                <p class="m-0">${element.address}</p>`
+            );
+            marker.setPopup(popup);
+          });
+        });
+        map.addControl(new tt.FullscreenControl());
+        map.addControl(new tt.NavigationControl());
+      }
     },
 
     fetchApartments() {
@@ -234,5 +301,11 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+#map {
+  width: 100%;
+  height: 400px;
+  border-radius: 20px;
+  box-shadow: black 5px 6px 20px -11px;
+}
 </style>
