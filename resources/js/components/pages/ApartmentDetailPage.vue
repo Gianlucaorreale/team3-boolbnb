@@ -23,89 +23,92 @@
               src="https://img.freepik.com/free-vector/beautiful-home_24877-50819.jpg?w=2000"
             />
             <!-- servizi -->
-            <hr>
+            <hr />
             <div class="my-3">
               <h3>COSA TROVERAI</h3>
               <div class="row">
-                <span class="col-6 py-2"
-                v-for="service in apartment.services"
-                :key="service.id"
-                :service="service"
+                <span
+                  class="col-6 py-2"
+                  v-for="service in apartment.services"
+                  :key="service.id"
+                  :service="service"
                 >
-                <i :class="service.icon + ' mr-4'"></i>
-                {{ service.label }}
-              </span>
+                  <i :class="service.icon + ' mr-4'"></i>
+                  {{ service.label }}
+                </span>
+              </div>
             </div>
-          </div>
-            <hr>
+            <hr />
             <h3>COSA OFFRE QUESTA ESPERIENZA</h3>
-            
           </div>
 
           <!-- messaggi -->
           <div class="col-12 col-md-4">
             <div class="card w-100 message shadow rounded p-3">
-
               <h3>Manda un messaggio.</h3>
-              
+
               <div v-if="errors">
-                <div v-if="errors.email" class="alert alert-danger" role="alert">
+                <div
+                  v-if="errors.email"
+                  class="alert alert-danger"
+                  role="alert"
+                >
                   {{ errors.email }}
                 </div>
-                
+
                 <div
-                v-if="errors.content"
-                class="alert alert-danger"
-                role="alert"
+                  v-if="errors.content"
+                  class="alert alert-danger"
+                  role="alert"
                 >
-                {{ errors.content }}
-              </div>
-            </div>
-            
-            <div v-if="sent">
-              <div class="alert alert-success" role="alert">
-                Messaggio inviato con successo!
-              </div>
-            </div>
-            
-            <form @submit.prevent="sendForm()">
-              <div class="form-row">
-                <div class="form-group col-md-12 mt-3">
-                  <label for="email">Email:</label>
-                  <input
-                  type="email"
-                  name="email"
-                  class="form-control"
-                  placeholder="inserire email"
-                  v-model="form.email"
-                  id="email"
-                  required
-                  />
-                </div>
-                <div class="form-group col-md-12 mt-3">
-                  <label for="content">Testo:</label>
-                  <textarea
-                  class="form-control mx-1"
-                  name="content"
-                  id="content"
-                  placeholder="inserire testo"
-                  v-model="form.content"
-                  rows="4"
-                  required
-                  ></textarea>
+                  {{ errors.content }}
                 </div>
               </div>
-              <div class="text-center">
-                <button type="submit" class="btn btn-primary mt-3 mb-3">
-                  Invia
-                </button>
+
+              <div v-if="sent">
+                <div class="alert alert-success" role="alert">
+                  Messaggio inviato con successo!
+                </div>
               </div>
-            </form>
-          </div>
-          </div>
+
+              <form @submit.prevent="sendForm()">
+                <div class="form-row">
+                  <div class="form-group col-md-12 mt-3">
+                    <label for="email">Email:</label>
+                    <input
+                      type="email"
+                      name="email"
+                      class="form-control"
+                      placeholder="inserire email"
+                      v-model="form.email"
+                      id="email"
+                      required
+                    />
+                  </div>
+                  <div class="form-group col-md-12 mt-3">
+                    <label for="content">Testo:</label>
+                    <textarea
+                      class="form-control mx-1"
+                      name="content"
+                      id="content"
+                      placeholder="inserire testo"
+                      v-model="form.content"
+                      rows="4"
+                      required
+                    ></textarea>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="send-button btn mt-3 mb-3">
+                    Invia
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
+    </div>
 
     <!-- map -->
 
@@ -221,9 +224,13 @@ export default {
   position: sticky;
   top: 20px;
   right: 0;
-} i {
+}
+i {
   width: 20px;
   height: 20px;
   font-size: 20px;
+}
+.send-button {
+  background-color: #ffbd59;
 }
 </style>

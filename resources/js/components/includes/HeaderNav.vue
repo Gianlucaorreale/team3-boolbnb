@@ -1,8 +1,8 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-    <router-link class="navbar-brand" :to="{ name: 'home-page' }"
-      >BoolB&B</router-link
-    >
+  <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+    <router-link class="navbar-brand" :to="{ name: 'home-page' }">
+      BoolB&B
+    </router-link>
     <button
       class="navbar-toggler"
       type="button"
@@ -31,21 +31,10 @@
         </li>
       </ul>
       <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            role="button"
-            data-toggle="dropdown"
-            aria-expanded="false"
+        <li class="nav-item">
+          <router-link class="nav-link" :to="{ name: 'about-us' }">
+            Su di noi</router-link
           >
-            Dropdown link
-          </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
         </li>
       </ul>
     </div>
@@ -59,4 +48,7 @@ export default {
 </script>
 
 <style>
+nav {
+  background-color: #c9e265;
+}
 </style>

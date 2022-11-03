@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-12">
           <div class="form-group position-relative">
-            <div id="address-tomtom">   
+            <div id="address-tomtom">
               <button
                 class="btn btn-outline-secondary search-btn"
                 type="button"
@@ -44,8 +44,8 @@
 <script>
 import TheLoader from "../generics/TheLoader.vue";
 import CardApartment from "./CardApartment.vue";
-import SearchBox from '@tomtom-international/web-sdk-plugin-searchbox';
-import { services } from '@tomtom-international/web-sdk-services';
+import SearchBox from "@tomtom-international/web-sdk-plugin-searchbox";
+import { services } from "@tomtom-international/web-sdk-services";
 export default {
   components: { CardApartment, TheLoader },
   name: "SearchBarApartment",
@@ -165,7 +165,11 @@ export default {
           console.log("chiamata terminata Appartamenti");
           this.isLoading = false;
           this.getMap();
-          this.$emit('sendApartments', {apartments: this.apartments, address: this.dist, radius : this.radius});
+          this.$emit("sendApartments", {
+            apartments: this.apartments,
+            address: this.dist,
+            radius: this.radius,
+          });
         });
     },
     getMap() {
@@ -215,37 +219,39 @@ export default {
         map.addControl(new tt.NavigationControl());
       }
     },
-    getSearchBox(){
+    getSearchBox() {
       var options = {
-          searchOptions: {
-              key: 'k8P3Rx9lwVUMwJiJA3JF9ARIMpojuobA',
-              language: 'it-IT',
-              limit: 10,
-          },
-          autocompleteOptions: {
-              key: 'k8P3Rx9lwVUMwJiJA3JF9ARIMpojuobA',
-              language: 'it-IT',
-          }
+        searchOptions: {
+          key: "k8P3Rx9lwVUMwJiJA3JF9ARIMpojuobA",
+          language: "it-IT",
+          limit: 10,
+        },
+        autocompleteOptions: {
+          key: "k8P3Rx9lwVUMwJiJA3JF9ARIMpojuobA",
+          language: "it-IT",
+        },
       };
-      const addressContainer = document.getElementById("address-tomtom")
+      const addressContainer = document.getElementById("address-tomtom");
       var ttSearchBox = new SearchBox(services, options);
       var searchBoxHTML = ttSearchBox.getSearchBoxHTML();
       addressContainer.append(searchBoxHTML);
-      const tomtomInput = document.getElementsByClassName("tt-search-box-input")[0];
-      tomtomInput.setAttribute("class","input-tomtom");
-      tomtomInput.addEventListener("input" , (e)=> {
+      const tomtomInput = document.getElementsByClassName(
+        "tt-search-box-input"
+      )[0];
+      tomtomInput.setAttribute("class", "input-tomtom");
+      tomtomInput.addEventListener("input", (e) => {
         this.dist = e.target.value;
-      })
+      });
       tomtomInput.addEventListener("change", (e) => {
         this.dist = e.target.value;
-      })
+      });
       tomtomInput.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
           this.dist = e.target.value;
           this.searchApartments();
         }
       });
-    }
+    },
   },
   mounted() {
     this.getSearchBox();
@@ -271,6 +277,7 @@ export default {
   top: 0;
   right: 0px;
   bottom: 0;
+  background-color: #ffbd59;
 }
 
 //Map Style
@@ -282,18 +289,19 @@ export default {
 }
 
 // SearchBox Style
-.tt-search-box-close-icon{
+.tt-search-box-close-icon {
   display: none;
 }
-.tt-search-box{
+.tt-search-box {
   position: relative;
   .tt-search-box-input-container {
     border: 1px solid #ccc;
+    border-radius: 5px;
     background-color: white;
     padding: 9px 10px;
     display: flex;
     align-items: center;
-    transition: border-color .2s ease,box-shadow .2s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
     .input-tomtom {
       border: 0px;
       width: 100%;
@@ -319,15 +327,15 @@ export default {
       display: flex;
       align-items: center;
       .tt-search-box-result-list-text-content {
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          margin-right: 10px;
-          display: inline;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-right: 10px;
+        display: inline;
       }
       .tt-search-box-result-list-bold {
-          font-weight: 700;
-          color: #000;
+        font-weight: 700;
+        color: #000;
       }
     }
   }
