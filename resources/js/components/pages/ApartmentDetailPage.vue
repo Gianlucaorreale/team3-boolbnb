@@ -7,11 +7,10 @@
         <address>
           <strong>{{ apartment.address }}</strong>
         </address>
-        <p>{{ apartment.square_meters }}mq</p>
 
-        <div class="row position-relative">
+        <div class="row justify-content-between position-relative">
           <!-- immagine -->
-          <div class="col-8">
+          <div class="col-7">
             <img
               class="img-fluid rounded"
               v-if="apartment.image"
@@ -23,56 +22,76 @@
               v-else
               src="https://img.freepik.com/free-vector/beautiful-home_24877-50819.jpg?w=2000"
             />
+            <!-- servizi -->
+            <hr>
+            <div class="my-3">
+              <h3>COSA TROVERAI</h3>
+              <div class="row">
+                <span class="col-6 py-2"
+                v-for="service in apartment.services"
+                :key="service.id"
+                :service="service"
+                >
+                <i :class="service.icon + ' mr-4'"></i>
+                {{ service.label }}
+              </span>
+            </div>
+          </div>
+            <hr>
+            <h3>COSA OFFRE QUESTA ESPERIENZA</h3>
+            
           </div>
 
           <!-- messaggi -->
-          <div class="col-3 card message p-3 shadow rounded ml-5">
-            <h3>Manda un messaggio.</h3>
+          <div class="col-12 col-md-4">
+            <div class="card w-100 message shadow rounded p-3">
 
-            <div v-if="errors">
-              <div v-if="errors.email" class="alert alert-danger" role="alert">
-                {{ errors.email }}
-              </div>
-
-              <div
+              <h3>Manda un messaggio.</h3>
+              
+              <div v-if="errors">
+                <div v-if="errors.email" class="alert alert-danger" role="alert">
+                  {{ errors.email }}
+                </div>
+                
+                <div
                 v-if="errors.content"
                 class="alert alert-danger"
                 role="alert"
-              >
+                >
                 {{ errors.content }}
               </div>
             </div>
-
+            
             <div v-if="sent">
               <div class="alert alert-success" role="alert">
                 Messaggio inviato con successo!
               </div>
             </div>
-
+            
             <form @submit.prevent="sendForm()">
               <div class="form-row">
                 <div class="form-group col-md-12 mt-3">
                   <label for="email">Email:</label>
                   <input
-                    type="email"
-                    name="email"
-                    class="form-control"
-                    placeholder="inserire email"
-                    v-model="form.email"
-                    id="email"
-                    required
+                  type="email"
+                  name="email"
+                  class="form-control"
+                  placeholder="inserire email"
+                  v-model="form.email"
+                  id="email"
+                  required
                   />
                 </div>
                 <div class="form-group col-md-12 mt-3">
                   <label for="content">Testo:</label>
                   <textarea
-                    class="form-control mx-1"
-                    name="content"
-                    id="content"
-                    placeholder="inserire testo"
-                    v-model="form.content"
-                    rows="4"
-                    required
+                  class="form-control mx-1"
+                  name="content"
+                  id="content"
+                  placeholder="inserire testo"
+                  v-model="form.content"
+                  rows="4"
+                  required
                   ></textarea>
                 </div>
               </div>
@@ -83,29 +102,14 @@
               </div>
             </form>
           </div>
-
-          <!-- servizi -->
-          <div class="col-8">
-            <h3>COSA TROVERAI</h3>
-            <span
-              v-for="service in apartment.services"
-              :key="service.id"
-              :service="service"
-            >
-              {{ service.label }}
-            </span>
+          </div>
           </div>
         </div>
-
-        <h3>COSA OFFRE QUESTA ESPERIENZA</h3>
-
-        <p></p>
       </div>
-    </div>
 
     <!-- map -->
 
-    <div class="row">
+    <div class="row my-3">
       <div class="col-12">
         <div id="map"></div>
       </div>
@@ -215,7 +219,11 @@ export default {
 
 .message {
   position: sticky;
-  top: 0;
+  top: 20px;
   right: 0;
+} i {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
 }
 </style>
