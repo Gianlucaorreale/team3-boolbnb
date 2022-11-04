@@ -3,7 +3,9 @@
     <div class="container">
       <div class="row">
         <div class="d-flex col-8 offset-2 justify-content-center align-items-baseline">
-        <h1 class="mr-3 text-shadow">Benvenuto su BoolB&B</h1>
+        <h1 class="mr-3 text-shadow">Benvenuto su </h1>
+        <p class="bool">BOOL</p>
+        <p class="beb">b&b</p>
         </div>
         <h2 class="col-8 text-shadow offset-2">Quando vuoi Dove vuoi Con chi vuoi</h2>
         <SearchBarApartment class="offset-2 col-8" @searchWithDist="setDistAndGo" />
@@ -93,14 +95,30 @@ export default {
 
 <style lang="scss" scoped>
 
+
+.bool{
+  color: #DE1010;
+  font-size: 3rem;
+  font-weight: 900;
+  font-style: oblique;
+}
+
+.beb{
+  color: white;
+  margin-top: 10px;
+  font-size: 2rem;
+  text-shadow: 1px 1px 1px gray;
+}
 .research {
-  height: calc(100vh - 55px);
+  height: calc(100vh - 65px);
   align-items: center;
   display: flex;
   background-position: center;
   transition: background-image 0.15s ease-in-out;
   background-size: cover;
   color: white;
+
+
   .text-shadow {
     text-shadow: 1px 1px 1px black;
   }
