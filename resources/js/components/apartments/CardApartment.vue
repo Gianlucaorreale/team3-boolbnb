@@ -1,12 +1,12 @@
 <template>
   <router-link
-    class="link-card px-0 m-2 col-md-4 col-lg-3"
+    class="link-card px-0"
     :to="{
       name: 'apartment-detail',
       params: { id: apartment.descriptive_title },
     }"
   >
-    <div class="h-100 d-flex flex-column justify-content-between">
+    <div class="d-flex flex-column justify-content-between">
       <!-- immagine -->
       <img
         v-if="apartment.image"
@@ -67,16 +67,10 @@ ul {
   box-shadow: 0 3px 5px grey;
 }
 
-.link-card:hover .title {
-  text-shadow: 0 1px 1px grey;
-}
-
-.link-card:hover .address {
-  text-shadow: 0 1px 1px grey;
-}
-
+.link-card:hover .title,
+.link-card:hover .address,
 .link-card:hover .service-icon {
-  text-shadow: 0 1px 1px grey;
+  text-shadow: 0 1px 1px rgb(212, 210, 210);
 }
 .link-card {
   color: black;
@@ -84,7 +78,7 @@ ul {
 
 img {
   width: 100%;
-  height: 50%;
+  height: 300px;
   object-fit: cover;
   object-position: center;
 }

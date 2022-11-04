@@ -88,11 +88,13 @@
               </div>
             </div>
           </form>
-          <CardApartment
-          v-for="apartment in filterApartments"
-          :key="apartment.id"
-          :apartment="apartment"
-          />
+          <div class="row">
+            <CardApartment class="col-12 col-xl-6 p-4"
+            v-for="apartment in filterApartments"
+            :key="apartment.id"
+            :apartment="apartment"
+            />
+          </div>
         </div>
       </div>
       <div class="col-12 col-md-6 p-0 position-relative">
@@ -317,7 +319,7 @@ export default {
   background-color: rgb(237, 237, 237);
   z-index: 3;
   padding: 5px;
-  top: 0;
+  top: 65px;
   right: 0;
 }
 
@@ -330,7 +332,7 @@ export default {
   z-index: 3;
   height: calc(100vh - 60px);
   position: sticky;
-  top: 0px;
-  left: 0;
+  top: 65px;
+  left: 0px;
 }
 </style>
