@@ -1,8 +1,8 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
-    <router-link class="navbar-brand" :to="{ name: 'home-page' }">
+  <nav class="navbar navbar-expand-lg navbar-light shadow-sm px-5">
+    <div class="navbar-brand">
       BoolB&B
-    </router-link>
+    </div>
     <button
       class="navbar-toggler"
       type="button"
@@ -32,9 +32,9 @@
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <!-- <router-link class="nav-link" :to="{ name: 'about-us' }">
-            Su di noi</router-link
-          > -->
+          <a href="/admin" class="nav-link">
+            Admin
+          </a>
         </li>
       </ul>
     </div>
