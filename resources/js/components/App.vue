@@ -1,7 +1,7 @@
 <template>
   <div>
     <HeaderNav />
-    <main class="p-5">
+    <main>
       <router-view></router-view>
     </main>
   </div>
