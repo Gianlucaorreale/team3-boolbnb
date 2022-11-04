@@ -1,7 +1,7 @@
 <template>
   <div>
     <HeaderNav />
-    <main>
+    <main class="fixed-navbar">
       <router-view></router-view>
     </main>
   </div>
@@ -15,5 +15,8 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+.fixed-navbar{
+  margin-top: 64px;
+}
 </style>
