@@ -248,7 +248,13 @@ export default {
 };
 </script>
   
-  <style scoped lang="scss">
+<style scoped lang="scss">
+#map {
+  width: 100%;
+  height: 400px;
+  border-radius: 20px;
+  box-shadow: black 5px 6px 20px -11px;
+}
 address {
   font-size: 1.3rem;
 }

@@ -32,9 +32,9 @@
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <router-link class="nav-link" :to="{ name: 'about-us' }">
+          <!-- <router-link class="nav-link" :to="{ name: 'about-us' }">
             Su di noi</router-link
-          >
+          > -->
         </li>
       </ul>
     </div>
