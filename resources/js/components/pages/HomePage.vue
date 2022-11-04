@@ -3,16 +3,11 @@
     <div class="container">
       <div class="row">
         <div class="d-flex col-8 offset-2 justify-content-center align-items-baseline">
-        <h1 class="mr-3">Benvenuto su</h1>
-        <img
-          class="logo"
-          :src="require('../../../../public/images/logo.png')"
-          alt=""
-        />
+        <h1 class="mr-3 text-shadow">Benvenuto su BoolB&B</h1>
         </div>
-        <h2 class="col-8 offset-2">Quando vuoi Dove vuoi Con chi vuoi</h2>
+        <h2 class="col-8 text-shadow offset-2">Quando vuoi Dove vuoi Con chi vuoi</h2>
         <SearchBarApartment class="offset-2 col-8" @searchWithDist="setDistAndGo" />
-        <p class="quote col-8 offset-2" :class="currentIndex == index ? 'active' : ''" v-for="(pic,index) in pictures" :key="index"><i class="fa-solid fa-quote-left"></i>{{pic.description}}<i class="fa-solid fa-quote-right"></i></p>
+        <p class="quote col-8 text-shadow offset-2" :class="currentIndex == index ? 'active' : ''" v-for="(pic,index) in pictures" :key="index"><i class="fa-solid fa-quote-left"></i>{{pic.description}}<i class="fa-solid fa-quote-right"></i></p>
       </div>
     </div>
     </div>
@@ -106,7 +101,9 @@ export default {
   transition: background-image 0.15s ease-in-out;
   background-size: cover;
   color: white;
-  text-shadow: 1px 1px 1px black;
+  .text-shadow {
+    text-shadow: 1px 1px 1px black;
+  }
   .quote {
     display: none;
     font-size: 30px;
