@@ -1,95 +1,104 @@
 <template>
-  <div class="container">
-    <form action="" method="get">
-      <div class="row my-3">
-        <!-- Choose beds -->
-        <div class="col">
-          <label for="bed"> Choose the num of beds: </label>
-          <select class="custom-select" v-model="bed" name="bed" id="bed">
-            <option selected value="">Scegli...</option>
-            <option v-for="bed in beds" :key="bed" :value="bed">
-              {{ bed }}
-            </option>
-          </select>
-        </div>
-
-        <!-- Choose rooms -->
-        <div class="col">
-          <label for="room"> Choose the num of rooms: </label>
-          <select class="custom-select" v-model="room" name="room" id="room">
-            <option selected value="">Scegli...</option>
-            <option v-for="room in rooms" :key="room" :value="room">
-              {{ room }}
-            </option>
-          </select>
-        </div>
-
-        <!-- Choose bathrooms -->
-        <div class="col">
-          <label for="bathroom"> Choose the num of bathrooms: </label>
-          <select
-            class="custom-select"
-            v-model="bathroom"
-            name="bathroom"
-            id="bathroom"
-          >
-            <option selected value="">Scegli...</option>
-            <option
-              v-for="bathroom in bathrooms"
-              :key="bathroom"
-              :value="bathroom"
-            >
-              {{ bathroom }}
-            </option>
-          </select>
-        </div>
-      </div>
-      <div>
-        <h3>Choose your services:</h3>
-        <div class="row">
-          <div class="col-6 col-lg-3" v-for="item in services" :key="item.id">
-            <input
-              class="mr-1"
-              :id="item.label"
-              name="services[]"
-              type="checkbox"
-              :value="item.id"
-              v-model="service"
-            />
-            <label :for="item.label">
-              <i :class="item.icon + ' mr-2'"></i>
-              {{ item.label }}
-            </label>
-          </div>
-        </div>
-        <div class="row" v-show="dist">
-          <div class="col-12 py-4">
-            <label for="customRange1" class="form-label fs-4">
-              Seleziona il raggio
-            </label>
-            <input
-              v-model="radius"
-              @change="getApartments"
-              min="0"
-              max="50"
-              step="1"
-              type="range"
-              class="form-range"
-              id="customRange1"
-            />
-            <p class="m-0">Raggio attuale: {{ radius }} Km</p>
-          </div>
-        </div>
-      </div>
-    </form>
+  <div class="container-fluid">
     <ul class="row p-0">
-      <CardApartment
-        v-for="apartment in filterApartments"
-        :key="apartment.id"
-        :apartment="apartment"
-      />
+      <div class="col-12 col-md-6">
+        <div class="row position-relative">
+          <form class="filters col-12" action="" method="get">
+            <div class="row my-3 m-0">
+              <!-- Choose beds -->
+              <div class="col">
+                <div class="d-flex align-items-center">
+                  <label class="my-0 mx-2" for="bed">beds: </label>
+                  <select class="custom-select" v-model="bed" name="bed" id="bed">
+                    <option selected value="">Scegli...</option>
+                    <option v-for="bed in beds" :key="bed" :value="bed">
+                      {{ bed }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Choose rooms -->
+              <div class="col">
+                <div class="d-flex align-items-center">
+                  <label class="my-0 mx-2" for="room">rooms: </label>
+                  <select class="custom-select" v-model="room" name="room" id="room">
+                    <option selected value="">Scegli...</option>
+                    <option v-for="room in rooms" :key="room" :value="room">
+                      {{ room }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Choose bathrooms -->
+              <div class="col">
+                <div class="d-flex align-items-center">
+                  <label class="my-0 mx-2" for="bathroom">bathrooms: </label>
+                  <select class="custom-select" v-model="bathroom" name="bathroom" id="bathroom">
+                    <option selected value="">Scegli...</option>
+                    <option v-for="bathroom in bathrooms" :key="bathroom" :value="bathroom">
+                      {{ bathroom }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="row" v-show="dist">
+                <div class="col-12 py-4">
+                  <label for="customRange1" class="form-label fs-4">
+                    Seleziona il raggio
+                  </label>
+                  <input
+                    v-model="radius"
+                    @change="getApartments"
+                    min="0"
+                    max="50"
+                    step="1"
+                    type="range"
+                    class="form-range"
+                    id="customRange1"
+                  />
+                  <p class="m-0">Raggio attuale: {{ radius }} Km</p>
+                </div>
+              </div>
+              <div v-show="showFilters" class="row">
+                <div class="col-6 col-lg-4" v-for="item in services" :key="item.id">
+                  <input
+                    class="mr-1"
+                    :id="item.label"
+                    name="services[]"
+                    type="checkbox"
+                    :value="item.id"
+                    v-model="service"
+                  />
+                  <label :for="item.label">
+                    <i :class="item.icon + ' mr-2'"></i>
+                    {{ item.label }}
+                  </label>
+                </div>
+              </div>
+              <div @click="showFilters = !showFilters" class="row w-100 service-filters">
+                <div class="col-12 text-center">
+                  <h4 v-if="!showFilters" class="my-0">Filtra i servizi <i class="fa-solid fa-sliders"></i></h4>
+                  <i v-if="!showFilters" class="fa-solid fa-chevron-down my-0"></i>
+                  <i v-else class="fa-solid fa-chevron-up my-0"></i>
+                </div>
+              </div>
+            </div>
+          </form>
+          <CardApartment
+          v-for="apartment in filterApartments"
+          :key="apartment.id"
+          :apartment="apartment"
+          />
+        </div>
+      </div>
+      <div class="col-12 col-md-6 p-0 position-relative">
+        <div id="map"></div>
+      </div>
     </ul>
-    <div id="map"></div>
   </div>
 </template>
 
@@ -106,6 +115,7 @@ export default {
       room: null,
       service: [],
       bathroom: null,
+      showFilters: false,
       services: [],
       apartments: [],
       apartmentsFilter: [],
@@ -302,10 +312,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.filters {
+  position: sticky;
+  background-color: rgb(237, 237, 237);
+  z-index: 3;
+  padding: 5px;
+  top: 0;
+  right: 0;
+}
+
+.service-filters{
+  cursor: pointer;
+}
+
 #map {
   width: 100%;
-  height: 400px;
-  border-radius: 20px;
-  box-shadow: black 5px 6px 20px -11px;
+  z-index: 3;
+  height: calc(100vh - 60px);
+  position: sticky;
+  top: 0px;
+  left: 0;
 }
 </style>
