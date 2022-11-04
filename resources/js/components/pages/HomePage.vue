@@ -1,30 +1,14 @@
 <template>
-  <div class="text-center research">
+  <div class="text-center research" :style="currentImage"> 
     <div class="container">
-      <h1 class="titolone">Benvenuto su BoolB&B</h1>
-      <h2>Quando vuoi Dove vuoi Con chi vuoi</h2>
-      <div class="container" id="galleryImages">
-        <div class="row text-center">
-                <div id="carousel" class="img-fluid">
-                    <div id="leftarrow" v-on:click="gotoPrev" >
-                      <i class="fa-solid fa-arrow-left"></i>
-                    </div>
-                    <div class="gallery">
-                        <figure v-for="(pic,index) in pictures" :class ="currentIndex === index ? `active` : ` `">
-                            <img :src="pic.url" :alt="pic.title" />
-                            <figcaption class="text-white">
-                                <h3>{{ pic.title }}</h3>
-                                <h5>{{ pic.description  }}</h5>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <i class="fa-solid fa-arrow-right" id="rightarrow" v-on:click="gotoNext"></i>
-                </div>
-               
-            </div>
-        </div>
+      <div class="row">
+
+        <h1 class="titolone offset-2 col-8">Benvenuto su BoolB&B</h1>
+        <h2 class="col-8 offset-2">Quando vuoi Dove vuoi Con chi vuoi</h2>
+        <SearchBarApartment class="offset-2 col-8" @searchWithDist="setDistAndGo" />
+        <p class="quote col-8 offset-2" :class="currentIndex == index ? 'active' : ''" v-for="(pic,index) in pictures" :key="index"><i class="fa-solid fa-quote-left"></i>{{pic.description}}<i class="fa-solid fa-quote-right"></i></p>
       </div>
-  <SearchBarApartment @searchWithDist="setDistAndGo" />
+    </div>
       
     </div>
 </template>
@@ -40,6 +24,8 @@ export default {
       apartments: [],
       address: "",
       currentIndex:0,
+      currentImage: '',
+      currentQuote: '',
       pictures :[
         {
            url: 'https://cdn.pixabay.com/photo/2019/10/06/08/57/tiber-river-4529605_960_720.jpg',
@@ -77,23 +63,25 @@ export default {
         };
     },
   methods: {
+    changeBackground(){
+      setInterval(() => {
+        this.currentIndex++;
+        if (this.currentIndex == this.pictures.length) this.currentIndex = 0;
+        this.pictures.forEach((pic,index) => {
+          if (this.currentIndex == index) return this.currentImage = 'background-image: url('+ pic.url +')';
+        });
+        return this.currentImage;
+      }, 5000);
+    },
     setDistAndGo(value) {
       this.address = value;
       this.$router.push({name:'apartments-list', query: { address: this.address }});
     },
-    gotoNext(){
-      this.currentIndex++;
-      if(this.currentIndex > this.pictures.length -1){
-      this.currentIndex = 0;
-        }
-      },
-      gotoPrev(){
-        this.currentIndex--;
-        if(this.currentIndex < 0){
-          this.currentIndex = this.pictures.length - 1;
-          }
-        }
   },
+  mounted(){
+    this.currentImage= 'background-image: url('+this.pictures[0].url+')';
+    this.changeBackground();
+  }
   
 
   };
@@ -106,64 +94,20 @@ export default {
 <style lang="scss" scoped>
 
 .research {
-  height: calc(100vh - 200px);
+  height: calc(100vh - 55px);
   align-items: center;
+  display: flex;
+  background-position: center;
+  transition: background-image 0.15s ease-in-out;
+  background-size: cover;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  .quote {
+    display: none;
+    font-size: 30px;
+    &.active {
+      display: block;
+    }
+  }
 }
-.titolone{
-  padding-top:50px;
-}
-#carousel{
-    height:300px;
-    width:600px;
-    position:relative;
-}
-#carousel .gallery{
-    height:100%;}
-
-#carousel .gallery img{
-    height:100%;
-    width:100%;
-}
-
-.gallery img{
-    height:100%;
-    width:300px;
-    object-fit:cover;
-     /* display:none;  */
-}
-#carousel .gallery figure{
-    height:100%;
-    display:none;
-    
-}
-#carousel .gallery .active{
-    display:block;
-}
-#leftarrow{
-    font-size: 50px;
-    position:absolute;
-    top:50%;
-    right:110%;
-    transform: translateY(-50%);
-    color:orangered;
-}
-#rightarrow{
-    font-size: 50px;
-    position:absolute;
-    top:50%;
-    left:110%;
-    transform: translateY(-50%);
-    color:orangered;
-}
-
-#carousel .gallery figure{
-    position: relative;
-}
-#carousel .gallery figcaption{
-    position:absolute;
-    top:20px;
-    right:5px;
-    left:20px;
-}
-
 </style>
