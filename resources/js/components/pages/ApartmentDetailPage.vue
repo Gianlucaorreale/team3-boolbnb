@@ -130,7 +130,7 @@
                   </div>
                 </div>
                 <div class="text-center">
-                  <button type="submit" class="btn btn-primary mt-3 mb-3">
+                  <button type="submit" class="send-button btn mt-3 mb-3">
                     Invia
                   </button>
                 </div>
@@ -267,5 +267,8 @@ i {
   width: 20px;
   height: 20px;
   font-size: 20px;
+}
+.send-button {
+  background-color: #ffbd59;
 }
 </style>

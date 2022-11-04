@@ -1,7 +1,14 @@
 <template>
   <div class="text-center">
     <div class="container">
-      <h1>Benvenuto su BoolB&B</h1>
+      <div class="d-flex justify-content-center align-items-baseline">
+        <h1 class="mr-3">Benvenuto su</h1>
+        <img
+          class="logo"
+          :src="require('../../../../public/images/logo.png')"
+          alt=""
+        />
+      </div>
       <h2>Dove vuoi alloggiare?</h2>
     </div>
 
