@@ -5,6 +5,7 @@
       <div class="col-12">
         <h1>{{ apartment.descriptive_title }}</h1>
         <address>
+          <i class="fa-solid fa-location-dot"></i>
           <strong>{{ apartment.address }}</strong>
         </address>
 
@@ -23,93 +24,129 @@
               src="https://img.freepik.com/free-vector/beautiful-home_24877-50819.jpg?w=2000"
             />
             <!-- servizi -->
-            <hr>
+            <hr />
             <div class="my-3">
               <h3>COSA TROVERAI</h3>
               <div class="row">
-                <span class="col-6 py-2"
-                v-for="service in apartment.services"
-                :key="service.id"
-                :service="service"
+                <span
+                  class="col-6 py-2"
+                  v-for="service in apartment.services"
+                  :key="service.id"
+                  :service="service"
                 >
-                <i :class="service.icon + ' mr-4'"></i>
-                {{ service.label }}
-              </span>
+                  <i :class="service.icon + ' mr-4'"></i>
+                  {{ service.label }}
+                </span>
+              </div>
             </div>
-          </div>
-            <hr>
+            <hr />
             <h3>COSA OFFRE QUESTA ESPERIENZA</h3>
-            
+            <p>
+              Abitazione di strong{{ apartment.square_meters }}mq, semplice,
+              accogliente, moderno e luminoso, composto da
+              {{ apartment.num_rooms }} stanze,
+              {{ apartment.num_bathroom }} bagni e
+              {{ apartment.num_bed }} letti. Completo di tutti gli
+              elettrodomestici necessari: lavastoviglie, microonde, bollitore.
+              Il salotto ha un divano letto matrimoniale molto comodo, grandi
+              finestre e una TV. Nel bagno è presente una lavatrice e un phon.
+            </p>
+            <hr />
+
+            <h3>DA SAPERE</h3>
+            <ul class="to-know">
+              <li>Check-in: Flessibili</li>
+              <li>Check-out: 16:00</li>
+              <li>È consentito portare animali domestici</li>
+              <li>
+                Si applicano le pratiche di sicurezza di BoolB&B per l'emergenza
+                COVID-19
+              </li>
+              <li>È consentito fumare</li>
+            </ul>
+            <hr />
+
+            <H5>
+              <i class="fa-regular fa-pen-to-square"></i>
+              CANCELLAZIONE GRATUITA FINO AD UNA SETTIMANA PRIMA
+            </H5>
+            <hr />
           </div>
 
           <!-- messaggi -->
           <div class="col-12 col-md-4">
             <div class="card w-100 message shadow rounded p-3">
-
               <h3>Manda un messaggio.</h3>
-              
+
               <div v-if="errors">
-                <div v-if="errors.email" class="alert alert-danger" role="alert">
+                <div
+                  v-if="errors.email"
+                  class="alert alert-danger"
+                  role="alert"
+                >
                   {{ errors.email }}
                 </div>
-                
+
                 <div
-                v-if="errors.content"
-                class="alert alert-danger"
-                role="alert"
+                  v-if="errors.content"
+                  class="alert alert-danger"
+                  role="alert"
                 >
-                {{ errors.content }}
-              </div>
-            </div>
-            
-            <div v-if="sent">
-              <div class="alert alert-success" role="alert">
-                Messaggio inviato con successo!
-              </div>
-            </div>
-            
-            <form @submit.prevent="sendForm()">
-              <div class="form-row">
-                <div class="form-group col-md-12 mt-3">
-                  <label for="email">Email:</label>
-                  <input
-                  type="email"
-                  name="email"
-                  class="form-control"
-                  placeholder="inserire email"
-                  v-model="form.email"
-                  id="email"
-                  required
-                  />
-                </div>
-                <div class="form-group col-md-12 mt-3">
-                  <label for="content">Testo:</label>
-                  <textarea
-                  class="form-control mx-1"
-                  name="content"
-                  id="content"
-                  placeholder="inserire testo"
-                  v-model="form.content"
-                  rows="4"
-                  required
-                  ></textarea>
+                  {{ errors.content }}
                 </div>
               </div>
-              <div class="text-center">
-                <button type="submit" class="btn btn-primary mt-3 mb-3">
-                  Invia
-                </button>
+
+              <div v-if="sent">
+                <div class="alert alert-success" role="alert">
+                  Messaggio inviato con successo!
+                </div>
               </div>
-            </form>
-          </div>
-          </div>
+
+              <form @submit.prevent="sendForm()">
+                <div class="form-row">
+                  <div class="form-group col-md-12 mt-3">
+                    <label for="email">Email:</label>
+                    <input
+                      type="email"
+                      name="email"
+                      class="form-control"
+                      placeholder="inserire email"
+                      v-model="form.email"
+                      id="email"
+                      required
+                    />
+                  </div>
+                  <div class="form-group col-md-12 mt-3">
+                    <label for="content">Testo:</label>
+                    <textarea
+                      class="form-control mx-1"
+                      name="content"
+                      id="content"
+                      placeholder="inserire testo"
+                      v-model="form.content"
+                      rows="4"
+                      required
+                    ></textarea>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary mt-3 mb-3">
+                    Invia
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
+    </div>
 
     <!-- map -->
 
     <div class="row my-3">
+      <div class="col-12 mb-3">
+        <h3>DOVE TI TROVERAI</h3>
+      </div>
       <div class="col-12">
         <div id="map"></div>
       </div>
@@ -212,16 +249,21 @@ export default {
 </script>
   
   <style scoped lang="scss">
-// img {
-//   object-fit: cover;
-//   object-position: center;
-// }
+address {
+  font-size: 1.3rem;
+}
+
+.to-know {
+  list-style-type: circle;
+  padding-left: 20px;
+}
 
 .message {
   position: sticky;
   top: 20px;
   right: 0;
-} i {
+}
+i {
   width: 20px;
   height: 20px;
   font-size: 20px;
