@@ -9,4 +9,18 @@
 
 html{
   height: 100%;
+  background-color: #ffffed;
+}
+main {
+  margin-top: 55px;
+  background-color: #ffffed;
+}
+.navbar {
+  background-color: #ffbd59;
+  position: fixed;
+  height: 55px;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
 }

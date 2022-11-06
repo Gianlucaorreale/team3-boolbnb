@@ -110,7 +110,7 @@ export default {
   text-shadow: 1px 1px 1px gray;
 }
 .research {
-  height: calc(100vh - 65px);
+  height: calc(100vh - 55px);
   align-items: center;
   display: flex;
   background-position: center;

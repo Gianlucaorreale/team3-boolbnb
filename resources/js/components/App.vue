@@ -18,8 +18,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.fixed-navbar{
-  margin-top: 65px;
-  background-color: #ffffed;
-}
+
 </style>

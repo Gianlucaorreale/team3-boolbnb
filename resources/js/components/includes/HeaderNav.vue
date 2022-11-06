@@ -51,16 +51,6 @@ export default {
 </script>
 
 <style>
-.navbar {
-  background-color: #ffbd59;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-  
-}
-
 .bool{
   color: #DE1010;
   font-size: 1.5rem;

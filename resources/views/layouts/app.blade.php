@@ -33,7 +33,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -45,9 +45,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        @if(Auth::user() && count(Auth::user()->apartment) == 0)
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.apartments.create') }}">Diventa un Host</a>
+                        </li>
+                        @endif
+                        @if(Auth::user() && count(Auth::user()->apartment) > 0)
                         <li class="nav-item">
                             <a class="nav-link {{ Request::is('admin/apartments*') ? 'active' : '' }}" href="{{ route('admin.apartments.index') }}">My Apartments</a>
                         </li>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->

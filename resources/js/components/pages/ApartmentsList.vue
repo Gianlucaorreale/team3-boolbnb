@@ -319,7 +319,7 @@ export default {
   background-color: rgb(237, 237, 237);
   z-index: 3;
   padding: 5px;
-  top: 65px;
+  top: 55px;
   right: 0;
 }
 
@@ -332,7 +332,7 @@ export default {
   z-index: 3;
   height: calc(100vh - 60px);
   position: sticky;
-  top: 65px;
+  top: 55px;
   left: 0px;
 }
 </style>
