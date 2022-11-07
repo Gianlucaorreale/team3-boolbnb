@@ -1,9 +1,9 @@
 <template>
 
-  <nav class="navbar navbar-expand-lg navbar-light shadow-sm px-5 py-0">
+  <nav class="navbar navbar-expand-lg navbar-light shadow-sm py-0">
     <div class="navbar-brand d-flex">
-      <p class="bool my-2">BOOL</p>
-      <p class="beb my-3">b&b</p>
+      <p class="bool">BOOL</p>
+      <p class="beb">b&b</p>
     </div>
     <button
       class="navbar-toggler"
@@ -56,10 +56,12 @@ export default {
   font-size: 1.5rem;
   font-weight: 900;
   font-style: oblique;
+  margin: 5px 0;
 }
 
 .beb{
   color: white;
   text-shadow: 1px 1px 1px gray;
+  margin: 5px 0;
 }
 </style>

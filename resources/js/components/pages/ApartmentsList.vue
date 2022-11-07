@@ -88,7 +88,7 @@
               </div>
             </div>
           </form>
-          <div class="row">
+          <div class="row w-100">
             <CardApartment class="col-12 col-xl-6 p-4"
             v-for="apartment in filterApartments"
             :key="apartment.id"

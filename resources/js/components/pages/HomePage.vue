@@ -2,14 +2,14 @@
   <div class="text-center research" :style="currentImage"> 
     <div class="container">
       <div class="row">
-        <div class="d-flex col-8 offset-2 justify-content-center align-items-baseline">
+        <div class="d-flex col-12 offset-md-2 col-md-8 justify-content-center align-items-baseline mb-4">
         <h1 class="mr-3 text-shadow">Benvenuto su </h1>
-        <p class="bool">BOOL</p>
-        <p class="beb">b&b</p>
+        <p class="bool m-0">BOOL</p>
+        <p class="beb m-0">b&b</p>
         </div>
-        <h2 class="col-8 text-shadow offset-2">Quando vuoi Dove vuoi Con chi vuoi</h2>
-        <SearchBarApartment class="offset-2 col-8" @searchWithDist="setDistAndGo" />
-        <p class="quote col-8 text-shadow offset-2" :class="currentIndex == index ? 'active' : ''" v-for="(pic,index) in pictures" :key="index"><i class="fa-solid fa-quote-left"></i>{{pic.description}}<i class="fa-solid fa-quote-right"></i></p>
+        <h2 class="col-12 text-shadow offset-md-2 col-md-8">Quando vuoi Dove vuoi Con chi vuoi</h2>
+        <SearchBarApartment class="offset-md-2 col-12 col-md-8" @searchWithDist="setDistAndGo" />
+        <p class="quote col-12 text-shadow offset-md-2 col-md-8" :class="currentIndex == index ? 'active' : ''" v-for="(pic,index) in pictures" :key="index"><i class="fa-solid fa-quote-left"></i>{{pic.description}}<i class="fa-solid fa-quote-right"></i></p>
       </div>
     </div>
     </div>
@@ -105,9 +105,9 @@ export default {
 
 .beb{
   color: white;
-  margin-top: 10px;
   font-size: 2rem;
   text-shadow: 1px 1px 1px gray;
+  align-self: flex-start;
 }
 .research {
   height: calc(100vh - 55px);

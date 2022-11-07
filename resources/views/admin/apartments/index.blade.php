@@ -52,6 +52,17 @@
               <span>
                 <i @if($apartment->visibility) class="fa-solid fa-check" @else class="fa-solid fa-xmark" @endif ></i> </span>           
             </div>
+            {{-- messages --}}
+            <div class="messages">
+              <label class="mr-2"><i class="fa-solid fa-envelope"></i></label>
+              <span>
+                @if(count($apartment->messages))
+                {{count($apartment->messages)}}
+                @else
+                {{0}}
+                @endif
+              </span>           
+            </div>
         </div>
 
         {{-- buttons --}}
