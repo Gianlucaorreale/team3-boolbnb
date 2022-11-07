@@ -21,7 +21,7 @@ class ApartmentSeeder extends Seeder
 
             $new_apartment = new Apartment();
 
-            $new_apartment->user_id = 1;
+            $new_apartment->user_id = $apartment['user_id'];
             $new_apartment->descriptive_title = $apartment['descriptive_title'];
             $new_apartment->num_rooms = $apartment['num_rooms'];
             $new_apartment->num_bed = $apartment['num_bed'];
@@ -31,11 +31,13 @@ class ApartmentSeeder extends Seeder
             $new_apartment->address = $apartment['address'];
             $new_apartment->latitude = $apartment['latitude'];
             $new_apartment->longitude = $apartment['longitude'];
-            //$new_apartment->image = $apartment['image'];
 
             $new_apartment->save();
             $services = Service::all();
-            $new_apartment->services()->attach($services);
+            foreach ($services as $service) {
+                if (rand(0,1))
+                $new_apartment->services()->attach($service);
+            }
         }
     }
 }

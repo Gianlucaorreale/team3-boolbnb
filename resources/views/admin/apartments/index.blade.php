@@ -16,7 +16,7 @@
 
         {{-- image --}}
         <div class="col-5 d-flex justify-content-center alig-items-center">
-          <img class="img-fluid rounded shadow-sm" src="{{asset('storage/'.$apartment->image)}}" alt="Card image cap">
+          <img class="img-obj-m rounded shadow-sm" src="{{asset('storage/'.$apartment->image)}}" alt="Card image cap">
         </div>
 
         {{-- description --}}

@@ -17,6 +17,7 @@ return [
     'image' => 'https://a0.muscache.com/im/pictures/e9305296-5f0b-4e67-92b5-aaa5f652e15b.jpg?im_w=1200',
   ],
   [
+    'user_id' => '2',
     'descriptive_title' => 'Giant’s place, studio flat near P.Maggiore',
     'num_rooms' => '3',
     'num_bathroom' => '1',
@@ -29,6 +30,7 @@ return [
     'image' => 'https://a0.muscache.com/im/pictures/3b5588b6-a7cb-43b7-840c-ddcf5e08c3ff.jpg?im_w=1200',
   ],
   [
+    'user_id' => '1',
     'descriptive_title' => 'Downtown Bologna Apartment',
     'num_rooms' => '6',
     'num_bathroom' => '3',
@@ -41,6 +43,7 @@ return [
     'image' => 'https://a0.muscache.com/im/pictures/846f1cc4-c8ed-4c38-88dc-39122d7890cb.jpg?im_w=1200',
   ],
   [
+    'user_id' => '3',
     'descriptive_title' => 'Moderno e spazioso appartamento con 1 camera da letto nel centro della città',
     'num_rooms' => '4',
     'num_bathroom' => '1',
@@ -53,6 +56,7 @@ return [
     'image' => 'https://a0.muscache.com/im/pictures/miso/Hosting-11313062/original/20f728a7-6b7a-46a7-bca6-f6fda730c241.jpeg?im_w=1200',
   ],
   [
+    'user_id' => '2',
     'descriptive_title' => 'Temporary House Oberdan: nel cuore di Bologna',
     'num_rooms' => '2',
     'num_bathroom' => '1',
@@ -65,6 +69,7 @@ return [
     'image' => 'https://a0.muscache.com/im/pictures/9dddfd63-43a3-404f-8563-5e879fe105c8.jpg?im_w=1200',
   ],
   [
+    'user_id' => '4',
     'descriptive_title' => 'Monolocale (a6) in centro a Bologna',
     'num_rooms' => '2',
     'num_bathroom' => '1',
@@ -77,6 +82,7 @@ return [
     'image' => 'https://a0.muscache.com/im/pictures/111443063/7fbe109c_original.jpg?im_w=1200',
   ],
   [
+    'user_id' => '3',
     'descriptive_title' => 'Bologna Stanza con vista sui tetti',
     'num_rooms' => '2',
     'num_bathroom' => '1',
@@ -89,6 +95,7 @@ return [
     'image' => 'https://a0.muscache.com/im/pictures/2347474/883a2726_original.jpg?im_w=1200',
   ],
   [
+    'user_id' => '1',
     'descriptive_title' => 'Appartamento Ariosti',
     'num_rooms' => '3',
     'num_bathroom' => '1',
@@ -101,6 +108,7 @@ return [
     'image' => 'https://a0.muscache.com/im/pictures/9da90c9d-df41-4642-abe9-6f571c7a0464.jpg?im_w=1200',
   ],
   [
+    'user_id' => '2',
     'descriptive_title' => 'Angolo via Parigi',
     'num_rooms' => '4',
     'num_bathroom' => '2',
@@ -113,6 +121,7 @@ return [
     'image' => 'https://a0.muscache.com/im/pictures/744f2a64-b34b-4793-ac54-b671692f4e00.jpg?im_w=1200',
   ],
   [
+    'user_id' => '4',
     'descriptive_title' => 'Smart Apartment Mercanzia - Affitti Brevi Italia',
     'num_rooms' => '5',
     'num_bathroom' => '2',
@@ -141,6 +150,7 @@ return [
     'image' => 'https://a0.muscache.com/im/pictures/e9305296-5f0b-4e67-92b5-aaa5f652e15b.jpg?im_w=1200',
   ],
   [
+    'user_id' => '5',
     'descriptive_title' => 'Giant’s place, studio flat',
     'num_rooms' => '3',
     'num_bathroom' => '1',
@@ -153,6 +163,7 @@ return [
     'image' => 'https://a0.muscache.com/im/pictures/3b5588b6-a7cb-43b7-840c-ddcf5e08c3ff.jpg?im_w=1200',
   ],
   [
+    'user_id' => '5',
     'descriptive_title' => 'Downtown Apartment',
     'num_rooms' => '6',
     'num_bathroom' => '3',
@@ -165,6 +176,7 @@ return [
     'image' => 'https://a0.muscache.com/im/pictures/846f1cc4-c8ed-4c38-88dc-39122d7890cb.jpg?im_w=1200',
   ],
   [
+    'user_id' => '3',
     'descriptive_title' => 'Moderno e spazioso appartamento con 1 camera da letto nel centro della città',
     'num_rooms' => '4',
     'num_bathroom' => '1',
@@ -177,6 +189,7 @@ return [
     'image' => 'https://a0.muscache.com/im/pictures/miso/Hosting-11313062/original/20f728a7-6b7a-46a7-bca6-f6fda730c241.jpeg?im_w=1200',
   ],
   [
+    'user_id' => '4',
     'descriptive_title' => 'Temporary House Oberdan',
     'num_rooms' => '2',
     'num_bathroom' => '1',
@@ -189,6 +202,7 @@ return [
     'image' => 'https://a0.muscache.com/im/pictures/9dddfd63-43a3-404f-8563-5e879fe105c8.jpg?im_w=1200',
   ],
   [
+    'user_id' => '2',
     'descriptive_title' => 'Monolocale (a6) in centro',
     'num_rooms' => '2',
     'num_bathroom' => '1',
@@ -201,6 +215,7 @@ return [
     'image' => 'https://a0.muscache.com/im/pictures/111443063/7fbe109c_original.jpg?im_w=1200',
   ],
   [
+    'user_id' => '4',
     'descriptive_title' => 'Stanza con vista sui tetti',
     'num_rooms' => '2',
     'num_bathroom' => '1',
@@ -213,6 +228,7 @@ return [
     'image' => 'https://a0.muscache.com/im/pictures/2347474/883a2726_original.jpg?im_w=1200',
   ],
   [
+    'user_id' => '5',
     'descriptive_title' => 'Appartamento Ariosti',
     'num_rooms' => '3',
     'num_bathroom' => '1',
@@ -225,6 +241,7 @@ return [
     'image' => 'https://a0.muscache.com/im/pictures/9da90c9d-df41-4642-abe9-6f571c7a0464.jpg?im_w=1200',
   ],
   [
+    'user_id' => '3',
     'descriptive_title' => 'Angolo via Parigi',
     'num_rooms' => '4',
     'num_bathroom' => '2',
@@ -237,6 +254,7 @@ return [
     'image' => 'https://a0.muscache.com/im/pictures/744f2a64-b34b-4793-ac54-b671692f4e00.jpg?im_w=1200',
   ],
   [
+    'user_id' => '5',
     'descriptive_title' => 'Smart Apartment Mercanzia - Affitti Brevi Italia',
     'num_rooms' => '5',
     'num_bathroom' => '2',
@@ -252,6 +270,7 @@ return [
   // MILANO
 
   [
+    'user_id' => '2',
     'descriptive_title' => "Fabbricati costruiti per esigenze industriali",
     'address' => "Via delle Industrie 23/25 20060 Colturano",
     'latitude' => "45.3747220",
@@ -263,8 +282,9 @@ return [
     'visibility' => true,
     'image' => 'https://a0.muscache.com/im/pictures/e9305296-5f0b-4e67-92b5-aaa5f652e15b.jpg?im_w=1200',
 
-],
-[
+  ],
+  [
+  'user_id' => '1',
     'descriptive_title' => "Posto auto",
     'address' => "Via Redipuglia 41 20010 San Giorgio su Legnano",
     'latitude' => "45.5711800",
@@ -278,6 +298,7 @@ return [
 
 ],
 [
+    'user_id' => '5',
     'descriptive_title' => "Abitazione di tipo economico",
     'address' => "VIA CILEA 6 20096 Pioltello",
     'latitude' => "45.5059618",
@@ -291,6 +312,7 @@ return [
 
 ],
 [
+    'user_id' => '3',
     'descriptive_title' => "Appartamento",
     'address' => "via Giulio Natta 17 20042 Pessano con Bornago",
     'latitude' => "45.5502763",
@@ -304,6 +326,7 @@ return [
 
 ],
 [
+  'user_id' => '4',
     'descriptive_title' => "Abitazione di tipo popolare",
     'address' => "via Carroccio 5 20020 Garbagnate Milanese",
     'latitude' => "45.5776442",
@@ -317,6 +340,7 @@ return [
 
 ],
 [
+    'user_id' => '4',
     'descriptive_title' => "Abitazione in villini",
     'address' => "viale Eugenio Villoresi 21 20045 Lainate",
     'latitude' => "45.5714559",
@@ -330,6 +354,7 @@ return [
 
 ],
 [
+    'user_id' => '3',
     'descriptive_title' => "Garage o autorimessa",
     'address' => "Via Senigallia 9 20161 Milano",
     'latitude' => "45.5318925",
@@ -343,6 +368,7 @@ return [
 
 ],
 [
+    'user_id' => '2',
     'descriptive_title' => "Abitazione di tipo economico",
     'address' => "VIA CILEA 6 20096 Pioltello",
     'latitude' => "45.5059618",
@@ -356,6 +382,7 @@ return [
 
 ],
 [
+    'user_id' => '3',
     'descriptive_title' => "Fabbricato",
     'address' => "Via Leonardo da Vinci 20081 Abbiategrasso",
     'latitude' => "45.3909147",
@@ -369,6 +396,7 @@ return [
 
 ],
 [
+    'user_id' => '4',
     'descriptive_title' => "Abitazione di tipo economico",
     'address' => "via Giovanni Boccaccio 10 20090 Pantigliate",
     'latitude' => "45.4389527",
@@ -385,6 +413,7 @@ return [
 // NAPOLI
 
 [
+  'user_id' => '3',
   "address" => "via seminario26 24 80011 Acerra",
   "square_meters" => "115",
   "num_bathroom" => "2",
@@ -398,6 +427,7 @@ return [
 
 ],
 [
+  'user_id' => '5',
   "address" => "Via Cisterna 5 80030 Cimitile",
   "square_meters" => "65",
   "num_bathroom" => "1",
@@ -411,6 +441,7 @@ return [
 
 ],
 [
+  'user_id' => '4',
   "address" => "Via Raffaele Angiulli 36 80144 Napoli",
   "square_meters" => "72",
   "num_bathroom" => "1",
@@ -424,6 +455,7 @@ return [
 
 ],
 [
+  'user_id' => '3',
   "address" => "Via Mauro Bordo, 80040 Napoli NA 80040 Terzigno",
   "square_meters" => "200",
   "num_bathroom" => "3",
@@ -437,6 +469,7 @@ return [
 
 ],
 [
+  'user_id' => '4',
   "address" => "Via Angelo Camillo De Meis 181 80147 Napoli",
   "square_meters" => "89",
   "num_bathroom" => "2",
@@ -450,6 +483,7 @@ return [
 
 ],
 [
+  'user_id' => '5',
   "address" => "via vecchia campana 40 80078 Pozzuoli",
   "square_meters" => "202",
   "num_bathroom" => "3",
@@ -463,6 +497,7 @@ return [
 
 ],
 [
+  'user_id' => '4',
   "address" => "Via Cegnacolo 6 80056 Ercolano",
   "square_meters" => "58",
   "num_bathroom" => "1",
@@ -476,6 +511,7 @@ return [
 
 ],
 [
+  'user_id' => '2',
   "address" => "Via Fortino - Vico IV 15 80075 Forio",
   "square_meters" => "95",
   "num_bathroom" => "1",
@@ -489,6 +525,7 @@ return [
 
 ],
 [
+  'user_id' => '3',
   "address" => "Via Roma 24 80030 Scisciano",
   "square_meters" => "63",
   "num_bathroom" => "1",
@@ -502,6 +539,7 @@ return [
 
 ],
 [
+  'user_id' => '5',
   "address" => "Traversa I Parrocchia 52 80146 Napoli",
   "square_meters" => "58",
   "num_bathroom" => "1",

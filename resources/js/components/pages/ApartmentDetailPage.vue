@@ -17,7 +17,7 @@
           
           <div class="row justify-content-between position-relative">
             <!-- immagine -->
-            <div class="col-7">
+            <div class="col-12 col-md-7">
               <img
               class="image-apartment rounded"
               v-if="apartment.image"

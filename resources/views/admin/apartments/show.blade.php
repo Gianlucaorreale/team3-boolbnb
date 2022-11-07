@@ -20,7 +20,7 @@
             </div>
     
             <div class="col-12 col-lg-6">
-              <img class="w-100 h-100 rounded shadow" src="{{asset('storage/'.$apartment->image)}}" alt="Card image cap">
+              <img class="w-100 img-obj-xl rounded shadow" src="{{asset('storage/'.$apartment->image)}}" alt="Card image cap">
             </div>
     
             <div class="col-12 col-lg-6 p-3 d-flex flex-column justify-content-between">
@@ -40,11 +40,6 @@
               <div class="mb-3">
                 <h4 class="d-inline mr-2">Visibile:</h4>
                 <span> @if($apartment->visibility) Si @else No @endif </span>           
-              </div>
-
-              <div>
-                <h4 class="d-inline mr-2">Sponsor:</h4>
-                <span></span>           
               </div>
 
               {{-- buttons --}}

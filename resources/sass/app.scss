@@ -24,3 +24,16 @@ main {
   right: 0;
   z-index: 10;
 }
+
+.img-obj-m,
+.img-obj-xl {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+.img-obj-m {
+  height: 300px;
+}
+.img-obj-xl{
+  height: 400px;
+}

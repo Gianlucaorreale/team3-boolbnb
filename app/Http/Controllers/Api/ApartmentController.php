@@ -22,7 +22,7 @@ class ApartmentController extends Controller
     public function index()
     {
         $apartments = Apartment::orderBy('created_at', 'DESC')
-        ->with(['services','user'])
+        ->with(['services','user'])->where('visibility', true)
         ->get();
 
         return response()->json($apartments);
