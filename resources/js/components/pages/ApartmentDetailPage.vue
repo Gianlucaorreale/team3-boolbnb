@@ -284,7 +284,7 @@ i {
   background-color: #ffbd59;
 }
 .image-apartment{
-  max-width: 100%;
+  width: 100%;
   height: 400px;
   object-fit: cover;
   object-position: center;

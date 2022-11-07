@@ -24,17 +24,17 @@
         <div class="col-6 text-left">
             {{-- address --}}
             <div class="address">
-              <label for=""><strong>Indirizzo</strong></label>
+              <label for=""><strong>Indirizzo:</strong></label>
               <address>{{$apartment->address}}</address>
             </div>
             {{-- square meters --}}
             <div class="square-meters">
-              <label for=""><strong>Metri quadri</strong></label>
+              <label for=""><strong>Metri quadri:</strong></label>
               <p>{{$apartment->square_meters}}</p>
             </div>
             {{-- services --}}
             <div class="services mb-3">
-              <label for=""><strong>Servizi</strong></label>
+              <label for=""><strong>Servizi:</strong></label>
               <div class="d-flex flex-wrap"> 
                   @forelse ($apartment->services as $service)
                   <span class="mr-3">   
@@ -68,14 +68,14 @@
         {{-- buttons --}}
         <div class="col-1 d-flex flex-column align-items-center">
             {{-- show --}}
-            <a href="{{route('admin.apartments.show', $apartment)}}" class="btn-secondary mb-2 p-2 rounded" style="width: 30px"><i class="fa-solid fa-magnifying-glass"></i></a>
+            <a href="{{route('admin.apartments.show', $apartment)}}" class="btn-secondary mb-2 p-2 rounded" style="width: 40px"><i class="fa-solid fa-magnifying-glass"></i></a>
             {{-- edit --}}
-            <a href="{{route('admin.apartments.edit', $apartment)}}" class="btn-secondary mb-2 p-2 rounded" style="width: 30px"><i class="fa-solid fa-pen"></i></a>
+            <a href="{{route('admin.apartments.edit', $apartment)}}" class="btn-secondary mb-2 p-2 rounded" style="width: 40px"><i class="fa-solid fa-pen"></i></a>
             {{-- delete --}}
             <form class="delete-form" action="{{route('admin.apartments.destroy', $apartment->id)}}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn-secondary delete mb-2 p-2 w-100 border-0 rounded" style="width: 30px" data-toggle="modal" data-target="#exampleModal">
+                <button type="submit" class="btn-secondary delete mb-2 p-2 border-0 rounded" style="width: 40px" data-toggle="modal" data-target="#exampleModal">
                   <i class="fa-solid fa-trash"></i>
                 </button>
                 @include('includes.admin.apartments.modal')

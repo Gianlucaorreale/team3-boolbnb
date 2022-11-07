@@ -63,7 +63,7 @@
                   <p class="m-0">Raggio attuale: {{ radius }} Km</p>
                 </div>
               </div>
-              <div v-show="showFilters" class="row">
+              <div v-show="showFilters" class="row pl-15">
                 <div class="col-6 col-lg-4" v-for="item in services" :key="item.id">
                   <input
                     class="mr-1"
@@ -275,7 +275,7 @@ export default {
           key: "k8P3Rx9lwVUMwJiJA3JF9ARIMpojuobA",
           container: "map",
           center: [this.long, this.lat],
-          zoom: this.radius > 20 ? 13 : 18,
+          zoom: this.radius > 25 ? 10 : 12,
         });
         var popupOffset = 25;
         map.on("load", () => {
@@ -334,5 +334,8 @@ export default {
   position: sticky;
   top: 55px;
   left: 0px;
+}
+.pl-15{
+  padding-left: 15px;
 }
 </style>

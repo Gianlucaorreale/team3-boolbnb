@@ -136,6 +136,6 @@
       });
       tomtomInput.setAttribute("name","address");
       tomtomInput.setAttribute("type","search");
-      tomtomInput.value = '<?php echo $apartment->address ?>';
+      tomtomInput.value = "<?php echo old('address', $apartment->address) ?>";
   </script>
   </form>
